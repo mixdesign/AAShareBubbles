@@ -3,7 +3,8 @@ AAShareBubbles
 
 AAShareBubbles View  - animated Social share buttons
 
-<img src="http://mixdesign.kz/external/AAShareBubbles.png?tmp"/>
+<img src="http://mixdesign.kz/external/AAShareBubbles.png?tmp"/>&nbsp;&nbsp;
+<img src="http://mixdesign.kz/external/AAShareBubbles2.png"/>
 
 Usage:
 ------
@@ -17,10 +18,29 @@ Usage:
     shareBubbles.showMailBubble = YES;
     [self.view addSubview:shareBubbles];
     [shareBubbles show];
+    
+    // Delegate
+    -(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType
+    {
+        switch (bubbleType) {
+            case AAShareBubbleTypeFacebook:
+                NSLog(@"Facebook");
+                break;
+            case AAShareBubbleTypeTwitter:
+                NSLog(@"Twitter");
+                break;
+            case AAShareBubbleTypeMail:
+                NSLog(@"Email");
+                break;
+                
+            default:
+                break;
+        }
+    }
 
 Requirements:
 ------------
-`ARC`, `iOS 5` and later, `Xcode 4` and later.
+`ARC`, `iOS 5+`, `Xcode 4+`
 
 Todo:
 -------
