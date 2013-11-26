@@ -3,8 +3,8 @@ AAShareBubbles
 
 AAShareBubbles View  - animated Social share buttons
 
-<img src="http://mixdesign.kz/external/AAShareBubbles.png?tmp"/>&nbsp;&nbsp;
-<img src="http://mixdesign.kz/external/AAShareBubbles2.png"/>
+<img src="http://mixdesign.kz/external/AAShareBubblesAbay.png?tmp"/>&nbsp;&nbsp;
+<img src="http://mixdesign.kz/external/AAShareBubbles.png?tmp"/>
 
 Usage:
 ------
