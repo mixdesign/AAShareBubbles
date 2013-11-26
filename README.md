@@ -22,6 +22,10 @@ Requirements:
 ------------
 `ARC`, `iOS 5` and later, `Xcode 4` and later.
 
+Todo:
+-------
+- Add more social icons.
+
 License
 ==============
 <b>AAShareBubbles</b> published under the MIT license:
