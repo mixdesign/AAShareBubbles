@@ -1,10 +1,56 @@
 AAShareBubbles
 ==============
 
-AAShareBubbles View  - animated Social share buttons
+Animated Social share buttons control.
+
+<img src="http://mixdesign.kz/external/AAShareBubblesAbay.png?tmp"/>&nbsp;&nbsp;
+<img src="http://mixdesign.kz/external/AAShareBubbles4.png"/>
+
+Usage:
+------
+`#import "AAShareBubbles.h"`
+
+    AAShareBubbles *shareBubbles = [[AAShareBubbles alloc] initWithPoint:CGPointMake(100, 100) radius:100 inView:self.view];
+    shareBubbles.delegate = self;
+    shareBubbles.bubbleRadius = 35; // Default is 40
+    shareBubbles.showFacebookBubble = YES;
+    shareBubbles.showTwitterBubble = YES;
+    shareBubbles.showMailBubble = YES;
+    shareBubbles.showGooglePlusBubble = YES;
+    [self.view addSubview:shareBubbles];
+    [shareBubbles show];
+    
+    // Delegate
+    -(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType
+    {
+        switch (bubbleType) {
+            case AAShareBubbleTypeFacebook:
+                NSLog(@"Facebook");
+                break;
+            case AAShareBubbleTypeTwitter:
+                NSLog(@"Twitter");
+                break;
+            case AAShareBubbleTypeMail:
+                NSLog(@"Email");
+                break;
+            case AAShareBubbleTypeGooglePlus:
+                NSLog(@"Google+");
+                break;
+            default:
+                break;
+        }
+    }
+
+Requirements:
+------------
+`ARC`, `iOS 5+`, `Xcode 4+`
+
+Todo:
+-------
+- Add more social buttons.
 
 License
-==============
+-------
 <b>AAShareBubbles</b> published under the MIT license:
 
 Copyright (C) 2013, Almas Adilbek
