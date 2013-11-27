@@ -4,7 +4,7 @@ AAShareBubbles
 Animated Social share buttons control.
 
 <img src="http://mixdesign.kz/external/AAShareBubblesAbay.png?tmp"/>&nbsp;&nbsp;
-<img src="http://mixdesign.kz/external/AAShareBubbles.png?tmp"/>
+<img src="http://mixdesign.kz/external/AAShareBubbles4.png"/>
 
 Usage:
 ------
@@ -16,6 +16,7 @@ Usage:
     shareBubbles.showFacebookBubble = YES;
     shareBubbles.showTwitterBubble = YES;
     shareBubbles.showMailBubble = YES;
+    shareBubbles.showGooglePlusBubble = YES;
     [self.view addSubview:shareBubbles];
     [shareBubbles show];
     
@@ -32,7 +33,9 @@ Usage:
             case AAShareBubbleTypeMail:
                 NSLog(@"Email");
                 break;
-                
+            case AAShareBubbleTypeGooglePlus:
+                NSLog(@"Google+");
+                break;
             default:
                 break;
         }
@@ -47,7 +50,7 @@ Todo:
 - Add more social buttons.
 
 License
-==============
+-------
 <b>AAShareBubbles</b> published under the MIT license:
 
 Copyright (C) 2013, Almas Adilbek
