@@ -1,7 +1,7 @@
 AAShareBubbles
 ==============
 
-AAShareBubbles View  - animated Social share buttons
+Animated Social share buttons control.
 
 <img src="http://mixdesign.kz/external/AAShareBubblesAbay.png?tmp"/>&nbsp;&nbsp;
 <img src="http://mixdesign.kz/external/AAShareBubbles.png?tmp"/>
@@ -44,7 +44,7 @@ Requirements:
 
 Todo:
 -------
-- Add more social icons.
+- Add more social buttons.
 
 License
 ==============
