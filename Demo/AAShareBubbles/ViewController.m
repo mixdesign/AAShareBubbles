@@ -40,6 +40,7 @@
     shareBubbles.bubbleRadius = bubbleRadius;
     shareBubbles.showFacebookBubble = YES;
     shareBubbles.showTwitterBubble = YES;
+    shareBubbles.showGooglePlusBubble = YES;
     shareBubbles.showMailBubble = YES;
     [self.view addSubview:shareBubbles];
     [shareBubbles show];
@@ -69,6 +70,9 @@
             break;
         case AAShareBubbleTypeMail:
             NSLog(@"Email");
+            break;
+        case AAShareBubbleTypeGooglePlus:
+            NSLog(@"Google+");
             break;
             
         default:
