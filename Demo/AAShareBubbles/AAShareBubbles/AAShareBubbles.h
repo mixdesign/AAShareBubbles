@@ -65,6 +65,6 @@ typedef enum {
 
 @end
 
-@protocol AAShareBubblesDelegate
+@protocol AAShareBubblesDelegate<NSObject>
 -(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType;
 @end

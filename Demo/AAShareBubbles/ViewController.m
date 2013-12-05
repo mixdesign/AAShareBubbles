@@ -42,7 +42,6 @@
     shareBubbles.showTwitterBubble = YES;
     shareBubbles.showGooglePlusBubble = YES;
     shareBubbles.showMailBubble = YES;
-    [self.view addSubview:shareBubbles];
     [shareBubbles show];
 }
 

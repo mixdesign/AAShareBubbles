@@ -18,7 +18,6 @@ Usage:
     shareBubbles.showTwitterBubble = YES;
     shareBubbles.showMailBubble = YES;
     shareBubbles.showGooglePlusBubble = YES;
-    [self.view addSubview:shareBubbles];
     [shareBubbles show];
     
     // Delegate

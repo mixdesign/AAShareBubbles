@@ -50,20 +50,23 @@
 #pragma mark Actions
 
 -(void)facebookTapped {
-    [self hide];
-    [self.delegate aaShareBubbles:self tappedBubbleWithType:AAShareBubbleTypeFacebook];
+    [self shareButtonTappedWithType:AAShareBubbleTypeFacebook];
 }
 -(void)twitterTapped {
-    [self hide];
-    [self.delegate aaShareBubbles:self tappedBubbleWithType:AAShareBubbleTypeTwitter];
+    [self shareButtonTappedWithType:AAShareBubbleTypeTwitter];
 }
 -(void)mailTapped {
-    [self hide];
-    [self.delegate aaShareBubbles:self tappedBubbleWithType:AAShareBubbleTypeMail];
+    [self shareButtonTappedWithType:AAShareBubbleTypeMail];
 }
 -(void)googlePlusTapped {
+    [self shareButtonTappedWithType:AAShareBubbleTypeGooglePlus];
+}
+
+-(void)shareButtonTappedWithType:(AAShareBubbleType)buttonType {
     [self hide];
-    [self.delegate aaShareBubbles:self tappedBubbleWithType:AAShareBubbleTypeGooglePlus];
+    if([self.delegate respondsToSelector:@selector(aaShareBubbles:tappedBubbleWithType:)]) {
+        [self.delegate aaShareBubbles:self tappedBubbleWithType:buttonType];
+    }
 }
 
 #pragma mark -
@@ -74,6 +77,8 @@
     if(!isAnimating)
     {
         isAnimating = YES;
+        
+        [self.parentView addSubview:self];
         
         // Create background
         bgView = [[UIView alloc] initWithFrame:self.parentView.bounds];
@@ -210,6 +215,7 @@
                 self.hidden = YES;
                 [bgView removeFromSuperview];
                 bgView = nil;
+                [self removeFromSuperview];
             }
             [bubble removeFromSuperview];
         }];
