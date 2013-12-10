@@ -5,7 +5,7 @@ Animated Social share buttons control.<br>
 Supported share buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>, <b>Tumblr</b>, <b>E-mail</b>
 
 <img src="http://mixdesign.kz/external/AAShareBubblesAbay.png?tmp"/>&nbsp;&nbsp;
-<img src="http://mixdesign.kz/external/AAShareBubbles.png"/>
+<img src="http://mixdesign.kz/external/AAShareBubbles.png?1"/>
 
 Usage:
 ------
