@@ -102,10 +102,10 @@
             [bubbles addObject:googlePlusBubble];
         }
         if(self.showTumblrBubble) {
-            UIButton *googlePlusBubble = [self shareButtonWithIcon:@"icon-aa-tumblr.png" andBackgroundColorRGB:self.tumblrBackgroundColorRGB];
-            [googlePlusBubble addTarget:self action:@selector(tumblrTapped) forControlEvents:UIControlEventTouchUpInside];
-            [self addSubview:googlePlusBubble];
-            [bubbles addObject:googlePlusBubble];
+            UIButton *tumblrBubble = [self shareButtonWithIcon:@"icon-aa-tumblr.png" andBackgroundColorRGB:self.tumblrBackgroundColorRGB];
+            [tumblrBubble addTarget:self action:@selector(tumblrTapped) forControlEvents:UIControlEventTouchUpInside];
+            [self addSubview:tumblrBubble];
+            [bubbles addObject:tumblrBubble];
         }
         if(self.showMailBubble) {
             UIButton *mailBubble = [self shareButtonWithIcon:@"icon-aa-at.png" andBackgroundColorRGB:self.mailBackgroundColorRGB];
