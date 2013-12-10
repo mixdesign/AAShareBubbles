@@ -21,7 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    radius = 100;
+    radius = 122;
     bubbleRadius = 40;
     _radiusSlider.value = radius;
     _bubbleRadiusSlider.value = bubbleRadius;
@@ -42,6 +42,7 @@
     shareBubbles.showTwitterBubble = YES;
     shareBubbles.showGooglePlusBubble = YES;
     shareBubbles.showMailBubble = YES;
+    shareBubbles.showTumblrBubble = YES;
     [shareBubbles show];
 }
 
@@ -72,6 +73,9 @@
             break;
         case AAShareBubbleTypeGooglePlus:
             NSLog(@"Google+");
+            break;
+        case AAShareBubbleTypeTumblr:
+            NSLog(@"Tumblr");
             break;
             
         default:

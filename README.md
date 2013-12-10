@@ -2,10 +2,10 @@ Intro
 ==============
 
 Animated Social share buttons control.<br>
-Supported share buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>,  <b>E-mail</b>
+Supported share buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>, <b>Tumblr</b>, <b>E-mail</b>
 
 <img src="http://mixdesign.kz/external/AAShareBubblesAbay.png?tmp"/>&nbsp;&nbsp;
-<img src="http://mixdesign.kz/external/AAShareBubbles4.png"/>
+<img src="http://mixdesign.kz/external/AAShareBubbles.png"/>
 
 Usage:
 ------
@@ -18,6 +18,7 @@ Usage:
     shareBubbles.showTwitterBubble = YES;
     shareBubbles.showMailBubble = YES;
     shareBubbles.showGooglePlusBubble = YES;
+    shareBubbles.showTumblrBubble = YES;
     [shareBubbles show];
     
     // Delegate
@@ -36,6 +37,9 @@ Usage:
             case AAShareBubbleTypeGooglePlus:
                 NSLog(@"Google+");
                 break;
+            case AAShareBubbleTypeTumblr:
+            	NSLog(@"Tumblr");
+            	break;
             default:
                 break;
         }
@@ -48,6 +52,7 @@ Requirements:
 Todo:
 -------
 - Add more social buttons.
+- Add opportunity to show bubbles in specified order.
 
 License
 -------

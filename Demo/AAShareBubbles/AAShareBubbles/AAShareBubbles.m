@@ -11,24 +11,11 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface AAShareBubbles()
--(UIColor *)colorFromRGB:(int)rgb;
--(UIButton *)shareButtonWithIcon:(NSString *)iconName andBackgroundColorRGB:(int)rgb;
--(UIImage *)imageWithView:(UIView *)view;
-
--(void)shareViewBackgroundTapped:(UITapGestureRecognizer *)tapGesture;
-
--(void)showBubbleWithAnimation:(NSDictionary *)info;
--(void)hideBubbleWithAnimation:(UIButton *)bubble;
-
--(void)facebookTapped;
--(void)twitterTapped;
--(void)mailTapped;
--(void)googlePlusTapped;
 @end
 
 @implementation AAShareBubbles
 
-@synthesize isAnimating, delegate = _delegate, showFacebookBubble, showMailBubble, showTwitterBubble, showGooglePlusBubble, radius, bubbleRadius, facebookBackgroundColorRGB, twitterBackgroundColorRGB, mailBackgroundColorRGB, googlePlusBackgroundColorRGB, parentView;
+@synthesize delegate = _delegate, parentView;
 
 - (id)initWithPoint:(CGPoint)point radius:(int)radiusValue inView:(UIView *)inView
 {
@@ -42,6 +29,7 @@
         self.twitterBackgroundColorRGB = 0x3083be;
         self.mailBackgroundColorRGB = 0xbb54b5;
         self.googlePlusBackgroundColorRGB = 0xd95433;
+        self.tumblrBackgroundColorRGB = 0x385877;
     }
     return self;
 }
@@ -61,6 +49,9 @@
 -(void)googlePlusTapped {
     [self shareButtonTappedWithType:AAShareBubbleTypeGooglePlus];
 }
+-(void)tumblrTapped {
+    [self shareButtonTappedWithType:AAShareBubbleTypeTumblr];
+}
 
 -(void)shareButtonTappedWithType:(AAShareBubbleType)buttonType {
     [self hide];
@@ -74,9 +65,9 @@
 
 -(void)show
 {
-    if(!isAnimating)
+    if(!self.isAnimating)
     {
-        isAnimating = YES;
+        self.isAnimating = YES;
         
         [self.parentView addSubview:self];
         
@@ -92,34 +83,40 @@
             bubbles = nil;
         }
         bubbles = [[NSMutableArray alloc] init];
-        if(showFacebookBubble) {
-            UIButton *facebookBubble = [self shareButtonWithIcon:@"icon-aa-facebook.png" andBackgroundColorRGB:facebookBackgroundColorRGB];
+        if(self.showFacebookBubble) {
+            UIButton *facebookBubble = [self shareButtonWithIcon:@"icon-aa-facebook.png" andBackgroundColorRGB:self.facebookBackgroundColorRGB];
             [facebookBubble addTarget:self action:@selector(facebookTapped) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:facebookBubble];
             [bubbles addObject:facebookBubble];
         }
-        if(showTwitterBubble) {
-            UIButton *twitterBubble = [self shareButtonWithIcon:@"icon-aa-twitter.png" andBackgroundColorRGB:twitterBackgroundColorRGB];
+        if(self.showTwitterBubble) {
+            UIButton *twitterBubble = [self shareButtonWithIcon:@"icon-aa-twitter.png" andBackgroundColorRGB:self.twitterBackgroundColorRGB];
             [twitterBubble addTarget:self action:@selector(twitterTapped) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:twitterBubble];
             [bubbles addObject:twitterBubble];
         }
-        if(showMailBubble) {
-            UIButton *mailBubble = [self shareButtonWithIcon:@"icon-aa-at.png" andBackgroundColorRGB:mailBackgroundColorRGB];
-            [mailBubble addTarget:self action:@selector(mailTapped) forControlEvents:UIControlEventTouchUpInside];
-            [self addSubview:mailBubble];
-            [bubbles addObject:mailBubble];
-        }
-        if(showGooglePlusBubble) {
-            UIButton *googlePlusBubble = [self shareButtonWithIcon:@"icon-aa-googleplus.png" andBackgroundColorRGB:googlePlusBackgroundColorRGB];
+        if(self.showGooglePlusBubble) {
+            UIButton *googlePlusBubble = [self shareButtonWithIcon:@"icon-aa-googleplus.png" andBackgroundColorRGB:self.googlePlusBackgroundColorRGB];
             [googlePlusBubble addTarget:self action:@selector(googlePlusTapped) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:googlePlusBubble];
             [bubbles addObject:googlePlusBubble];
         }
+        if(self.showTumblrBubble) {
+            UIButton *googlePlusBubble = [self shareButtonWithIcon:@"icon-aa-tumblr.png" andBackgroundColorRGB:self.tumblrBackgroundColorRGB];
+            [googlePlusBubble addTarget:self action:@selector(tumblrTapped) forControlEvents:UIControlEventTouchUpInside];
+            [self addSubview:googlePlusBubble];
+            [bubbles addObject:googlePlusBubble];
+        }
+        if(self.showMailBubble) {
+            UIButton *mailBubble = [self shareButtonWithIcon:@"icon-aa-at.png" andBackgroundColorRGB:self.mailBackgroundColorRGB];
+            [mailBubble addTarget:self action:@selector(mailTapped) forControlEvents:UIControlEventTouchUpInside];
+            [self addSubview:mailBubble];
+            [bubbles addObject:mailBubble];
+        }
         
         if(bubbles.count == 0) return;
         
-        float bubbleDistanceFromPivot = radius - bubbleRadius;
+        float bubbleDistanceFromPivot = self.radius - self.bubbleRadius;
         
         float bubblesBetweenAngel = 360 / bubbles.count;
         float angely = (180 - bubblesBetweenAngel) * 0.5;
@@ -132,14 +129,14 @@
             UIButton *bubble = [bubbles objectAtIndex:i];
             bubble.tag = i;
             
-            float angel = startAngel + i * bubblesBetweenAngel;
-            float x = cos(angel * M_PI / 180) * bubbleDistanceFromPivot + radius;
-            float y = sin(angel * M_PI / 180) * bubbleDistanceFromPivot + radius;
+            float angle = startAngel + i * bubblesBetweenAngel;
+            float x = cos(angle * M_PI / 180) * bubbleDistanceFromPivot + self.radius;
+            float y = sin(angle * M_PI / 180) * bubbleDistanceFromPivot + self.radius;
             
             [coordinates addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:x], @"x", [NSNumber numberWithFloat:y], @"y", nil]];
             
             bubble.transform = CGAffineTransformMakeScale(0.001, 0.001);
-            bubble.center = CGPointMake(radius, radius);
+            bubble.center = CGPointMake(self.radius, self.radius);
         }
         
         int inetratorI = 0;
@@ -154,9 +151,9 @@
 }
 -(void)hide
 {
-    if(!isAnimating)
+    if(!self.isAnimating)
     {
-        isAnimating = YES;
+        self.isAnimating = YES;
         int inetratorI = 0;
         for (UIButton *bubble in bubbles)
         {
@@ -191,7 +188,7 @@
             [UIView animateWithDuration:0.15 animations:^{
                 bubble.transform = CGAffineTransformMakeScale(1, 1);
             } completion:^(BOOL finished) {
-                if(bubble.tag == bubbles.count - 1) isAnimating = NO;
+                if(bubble.tag == bubbles.count - 1) self.isAnimating = NO;
                 bubble.layer.shadowColor = [UIColor blackColor].CGColor;
                 bubble.layer.shadowOpacity = 0.2;
                 bubble.layer.shadowOffset = CGSizeMake(0, 1);
@@ -206,12 +203,12 @@
         bubble.transform = CGAffineTransformMakeScale(1.2, 1.2);
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.25 animations:^{
-            bubble.center = CGPointMake(radius, radius);
+            bubble.center = CGPointMake(self.radius, self.radius);
             bubble.transform = CGAffineTransformMakeScale(0.001, 0.001);
             bubble.alpha = 0;
         } completion:^(BOOL finished) {
             if(bubble.tag == bubbles.count - 1) {
-                isAnimating = NO;
+                self.isAnimating = NO;
                 self.hidden = YES;
                 [bgView removeFromSuperview];
                 bgView = nil;
@@ -225,12 +222,12 @@
 -(UIButton *)shareButtonWithIcon:(NSString *)iconName andBackgroundColorRGB:(int)rgb
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 2 * bubbleRadius, 2 * bubbleRadius);
+    button.frame = CGRectMake(0, 0, 2 * self.bubbleRadius, 2 * self.bubbleRadius);
     
     // Circle background
-    UIView *circle = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2 * bubbleRadius, 2 * bubbleRadius)];
+    UIView *circle = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2 * self.bubbleRadius, 2 * self.bubbleRadius)];
     circle.backgroundColor = [self colorFromRGB:rgb];
-    circle.layer.cornerRadius = bubbleRadius;
+    circle.layer.cornerRadius = self.bubbleRadius;
     circle.layer.masksToBounds = YES;
     circle.opaque = NO;
     circle.alpha = 0.97;
