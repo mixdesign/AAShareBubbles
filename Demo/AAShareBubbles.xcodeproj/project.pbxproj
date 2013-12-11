@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE06E2F11856C5EF00DD3B18 /* icon-aa-tumblr.png in Resources */ = {isa = PBXBuildFile; fileRef = CE06E2EF1856C5EF00DD3B18 /* icon-aa-tumblr.png */; };
-		CE06E2F21856C5EF00DD3B18 /* icon-aa-tumblr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE06E2F01856C5EF00DD3B18 /* icon-aa-tumblr@2x.png */; };
+		CE5516E11858F69700818A58 /* AAShareBubbles.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5516D61858F69700818A58 /* AAShareBubbles.m */; };
+		CE5516E21858F69700818A58 /* icon-aa-at.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516D71858F69700818A58 /* icon-aa-at.png */; };
+		CE5516E31858F69700818A58 /* icon-aa-at@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516D81858F69700818A58 /* icon-aa-at@2x.png */; };
+		CE5516E41858F69700818A58 /* icon-aa-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516D91858F69700818A58 /* icon-aa-facebook.png */; };
+		CE5516E51858F69700818A58 /* icon-aa-facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516DA1858F69700818A58 /* icon-aa-facebook@2x.png */; };
+		CE5516E61858F69700818A58 /* icon-aa-googleplus.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516DB1858F69700818A58 /* icon-aa-googleplus.png */; };
+		CE5516E71858F69700818A58 /* icon-aa-googleplus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516DC1858F69700818A58 /* icon-aa-googleplus@2x.png */; };
+		CE5516E81858F69700818A58 /* icon-aa-tumblr.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516DD1858F69700818A58 /* icon-aa-tumblr.png */; };
+		CE5516E91858F69700818A58 /* icon-aa-tumblr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516DE1858F69700818A58 /* icon-aa-tumblr@2x.png */; };
+		CE5516EA1858F69700818A58 /* icon-aa-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516DF1858F69700818A58 /* icon-aa-twitter.png */; };
+		CE5516EB1858F69700818A58 /* icon-aa-twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516E01858F69700818A58 /* icon-aa-twitter@2x.png */; };
 		CEBAD0A21844B41100D66BBB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAD0A11844B41100D66BBB /* UIKit.framework */; };
 		CEBAD0A41844B41100D66BBB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAD0A31844B41100D66BBB /* Foundation.framework */; };
 		CEBAD0A61844B41100D66BBB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAD0A51844B41100D66BBB /* CoreGraphics.framework */; };
@@ -21,22 +30,23 @@
 		CEBAD0BB1844B41100D66BBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAD0BA1844B41100D66BBB /* ViewController.m */; };
 		CEBAD0BE1844B41100D66BBB /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0BC1844B41100D66BBB /* ViewController_iPhone.xib */; };
 		CEBAD0C11844B41100D66BBB /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0BF1844B41100D66BBB /* ViewController_iPad.xib */; };
-		CEBAD0D21844B49C00D66BBB /* AAShareBubbles.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBAD0C91844B49C00D66BBB /* AAShareBubbles.m */; };
-		CEBAD0E51844BCAC00D66BBB /* icon-aa-at.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0DD1844BCAA00D66BBB /* icon-aa-at.png */; };
-		CEBAD0E61844BCAC00D66BBB /* icon-aa-at@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0DE1844BCAA00D66BBB /* icon-aa-at@2x.png */; };
-		CEBAD0E71844BCAC00D66BBB /* icon-aa-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0DF1844BCAA00D66BBB /* icon-aa-facebook.png */; };
-		CEBAD0E81844BCAC00D66BBB /* icon-aa-facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0E01844BCAB00D66BBB /* icon-aa-facebook@2x.png */; };
-		CEBAD0E91844BCAC00D66BBB /* icon-aa-googleplus.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0E11844BCAB00D66BBB /* icon-aa-googleplus.png */; };
-		CEBAD0EA1844BCAC00D66BBB /* icon-aa-googleplus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0E21844BCAB00D66BBB /* icon-aa-googleplus@2x.png */; };
-		CEBAD0EB1844BCAC00D66BBB /* icon-aa-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0E31844BCAB00D66BBB /* icon-aa-twitter.png */; };
-		CEBAD0EC1844BCAC00D66BBB /* icon-aa-twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0E41844BCAC00D66BBB /* icon-aa-twitter@2x.png */; };
 		CEBAD0EF1844BDDD00D66BBB /* icon-share.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0ED1844BDDD00D66BBB /* icon-share.png */; };
 		CEBAD0F01844BDDD00D66BBB /* icon-share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0EE1844BDDD00D66BBB /* icon-share@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE06E2EF1856C5EF00DD3B18 /* icon-aa-tumblr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-tumblr.png"; sourceTree = "<group>"; };
-		CE06E2F01856C5EF00DD3B18 /* icon-aa-tumblr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-tumblr@2x.png"; sourceTree = "<group>"; };
+		CE5516D51858F69700818A58 /* AAShareBubbles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAShareBubbles.h; sourceTree = "<group>"; };
+		CE5516D61858F69700818A58 /* AAShareBubbles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAShareBubbles.m; sourceTree = "<group>"; };
+		CE5516D71858F69700818A58 /* icon-aa-at.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-at.png"; sourceTree = "<group>"; };
+		CE5516D81858F69700818A58 /* icon-aa-at@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-at@2x.png"; sourceTree = "<group>"; };
+		CE5516D91858F69700818A58 /* icon-aa-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-facebook.png"; sourceTree = "<group>"; };
+		CE5516DA1858F69700818A58 /* icon-aa-facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-facebook@2x.png"; sourceTree = "<group>"; };
+		CE5516DB1858F69700818A58 /* icon-aa-googleplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-googleplus.png"; sourceTree = "<group>"; };
+		CE5516DC1858F69700818A58 /* icon-aa-googleplus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-googleplus@2x.png"; sourceTree = "<group>"; };
+		CE5516DD1858F69700818A58 /* icon-aa-tumblr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-tumblr.png"; sourceTree = "<group>"; };
+		CE5516DE1858F69700818A58 /* icon-aa-tumblr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-tumblr@2x.png"; sourceTree = "<group>"; };
+		CE5516DF1858F69700818A58 /* icon-aa-twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-twitter.png"; sourceTree = "<group>"; };
+		CE5516E01858F69700818A58 /* icon-aa-twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-twitter@2x.png"; sourceTree = "<group>"; };
 		CEBAD09E1844B41100D66BBB /* AAShareBubbles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAShareBubbles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBAD0A11844B41100D66BBB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEBAD0A31844B41100D66BBB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -54,16 +64,6 @@
 		CEBAD0BA1844B41100D66BBB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CEBAD0BD1844B41100D66BBB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		CEBAD0C01844B41100D66BBB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
-		CEBAD0C81844B49C00D66BBB /* AAShareBubbles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAShareBubbles.h; sourceTree = "<group>"; };
-		CEBAD0C91844B49C00D66BBB /* AAShareBubbles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAShareBubbles.m; sourceTree = "<group>"; };
-		CEBAD0DD1844BCAA00D66BBB /* icon-aa-at.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-at.png"; sourceTree = "<group>"; };
-		CEBAD0DE1844BCAA00D66BBB /* icon-aa-at@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-at@2x.png"; sourceTree = "<group>"; };
-		CEBAD0DF1844BCAA00D66BBB /* icon-aa-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-facebook.png"; sourceTree = "<group>"; };
-		CEBAD0E01844BCAB00D66BBB /* icon-aa-facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-facebook@2x.png"; sourceTree = "<group>"; };
-		CEBAD0E11844BCAB00D66BBB /* icon-aa-googleplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-googleplus.png"; sourceTree = "<group>"; };
-		CEBAD0E21844BCAB00D66BBB /* icon-aa-googleplus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-googleplus@2x.png"; sourceTree = "<group>"; };
-		CEBAD0E31844BCAB00D66BBB /* icon-aa-twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-twitter.png"; sourceTree = "<group>"; };
-		CEBAD0E41844BCAC00D66BBB /* icon-aa-twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-twitter@2x.png"; sourceTree = "<group>"; };
 		CEBAD0ED1844BDDD00D66BBB /* icon-share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share.png"; sourceTree = "<group>"; };
 		CEBAD0EE1844BDDD00D66BBB /* icon-share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +82,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE5516D41858F69700818A58 /* AAShareBubbles */ = {
+			isa = PBXGroup;
+			children = (
+				CE5516D51858F69700818A58 /* AAShareBubbles.h */,
+				CE5516D61858F69700818A58 /* AAShareBubbles.m */,
+				CE5516D71858F69700818A58 /* icon-aa-at.png */,
+				CE5516D81858F69700818A58 /* icon-aa-at@2x.png */,
+				CE5516D91858F69700818A58 /* icon-aa-facebook.png */,
+				CE5516DA1858F69700818A58 /* icon-aa-facebook@2x.png */,
+				CE5516DB1858F69700818A58 /* icon-aa-googleplus.png */,
+				CE5516DC1858F69700818A58 /* icon-aa-googleplus@2x.png */,
+				CE5516DD1858F69700818A58 /* icon-aa-tumblr.png */,
+				CE5516DE1858F69700818A58 /* icon-aa-tumblr@2x.png */,
+				CE5516DF1858F69700818A58 /* icon-aa-twitter.png */,
+				CE5516E01858F69700818A58 /* icon-aa-twitter@2x.png */,
+			);
+			name = AAShareBubbles;
+			path = ../../AAShareBubbles;
+			sourceTree = "<group>";
+		};
 		CEBAD0951844B41100D66BBB = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +132,7 @@
 		CEBAD0A71844B41100D66BBB /* AAShareBubbles */ = {
 			isa = PBXGroup;
 			children = (
-				CEBAD0C71844B49C00D66BBB /* AAShareBubbles */,
+				CE5516D41858F69700818A58 /* AAShareBubbles */,
 				CEBAD0B01844B41100D66BBB /* AppDelegate.h */,
 				CEBAD0B11844B41100D66BBB /* AppDelegate.m */,
 				CEBAD0B91844B41100D66BBB /* ViewController.h */,
@@ -138,25 +158,6 @@
 				CEBAD0B71844B41100D66BBB /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CEBAD0C71844B49C00D66BBB /* AAShareBubbles */ = {
-			isa = PBXGroup;
-			children = (
-				CEBAD0C81844B49C00D66BBB /* AAShareBubbles.h */,
-				CEBAD0C91844B49C00D66BBB /* AAShareBubbles.m */,
-				CEBAD0DD1844BCAA00D66BBB /* icon-aa-at.png */,
-				CEBAD0DE1844BCAA00D66BBB /* icon-aa-at@2x.png */,
-				CEBAD0DF1844BCAA00D66BBB /* icon-aa-facebook.png */,
-				CEBAD0E01844BCAB00D66BBB /* icon-aa-facebook@2x.png */,
-				CEBAD0E21844BCAB00D66BBB /* icon-aa-googleplus@2x.png */,
-				CEBAD0E11844BCAB00D66BBB /* icon-aa-googleplus.png */,
-				CEBAD0E31844BCAB00D66BBB /* icon-aa-twitter.png */,
-				CEBAD0E41844BCAC00D66BBB /* icon-aa-twitter@2x.png */,
-				CE06E2EF1856C5EF00DD3B18 /* icon-aa-tumblr.png */,
-				CE06E2F01856C5EF00DD3B18 /* icon-aa-tumblr@2x.png */,
-			);
-			path = AAShareBubbles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,18 +217,18 @@
 				CEBAD0B81844B41100D66BBB /* Default-568h@2x.png in Resources */,
 				CEBAD0BE1844B41100D66BBB /* ViewController_iPhone.xib in Resources */,
 				CEBAD0C11844B41100D66BBB /* ViewController_iPad.xib in Resources */,
-				CEBAD0E51844BCAC00D66BBB /* icon-aa-at.png in Resources */,
-				CEBAD0E61844BCAC00D66BBB /* icon-aa-at@2x.png in Resources */,
-				CEBAD0E71844BCAC00D66BBB /* icon-aa-facebook.png in Resources */,
-				CEBAD0E81844BCAC00D66BBB /* icon-aa-facebook@2x.png in Resources */,
-				CEBAD0E91844BCAC00D66BBB /* icon-aa-googleplus.png in Resources */,
-				CEBAD0EA1844BCAC00D66BBB /* icon-aa-googleplus@2x.png in Resources */,
-				CEBAD0EB1844BCAC00D66BBB /* icon-aa-twitter.png in Resources */,
-				CEBAD0EC1844BCAC00D66BBB /* icon-aa-twitter@2x.png in Resources */,
 				CEBAD0EF1844BDDD00D66BBB /* icon-share.png in Resources */,
 				CEBAD0F01844BDDD00D66BBB /* icon-share@2x.png in Resources */,
-				CE06E2F11856C5EF00DD3B18 /* icon-aa-tumblr.png in Resources */,
-				CE06E2F21856C5EF00DD3B18 /* icon-aa-tumblr@2x.png in Resources */,
+				CE5516E21858F69700818A58 /* icon-aa-at.png in Resources */,
+				CE5516E31858F69700818A58 /* icon-aa-at@2x.png in Resources */,
+				CE5516E41858F69700818A58 /* icon-aa-facebook.png in Resources */,
+				CE5516E51858F69700818A58 /* icon-aa-facebook@2x.png in Resources */,
+				CE5516E61858F69700818A58 /* icon-aa-googleplus.png in Resources */,
+				CE5516E71858F69700818A58 /* icon-aa-googleplus@2x.png in Resources */,
+				CE5516E81858F69700818A58 /* icon-aa-tumblr.png in Resources */,
+				CE5516E91858F69700818A58 /* icon-aa-tumblr@2x.png in Resources */,
+				CE5516EA1858F69700818A58 /* icon-aa-twitter.png in Resources */,
+				CE5516EB1858F69700818A58 /* icon-aa-twitter@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +242,7 @@
 				CEBAD0AE1844B41100D66BBB /* main.m in Sources */,
 				CEBAD0B21844B41100D66BBB /* AppDelegate.m in Sources */,
 				CEBAD0BB1844B41100D66BBB /* ViewController.m in Sources */,
-				CEBAD0D21844B49C00D66BBB /* AAShareBubbles.m in Sources */,
+				CE5516E11858F69700818A58 /* AAShareBubbles.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
