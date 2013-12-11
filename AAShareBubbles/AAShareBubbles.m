@@ -30,6 +30,7 @@
         self.mailBackgroundColorRGB = 0xbb54b5;
         self.googlePlusBackgroundColorRGB = 0xd95433;
         self.tumblrBackgroundColorRGB = 0x385877;
+        self.vkBackgroundColorRGB = 0x4a74a5;
     }
     return self;
 }
@@ -88,6 +89,10 @@
         }
         if(self.showMailBubble) {
             UIButton *mailBubble = [self shareButtonWithIcon:@"icon-aa-at.png" backgroundColor:self.mailBackgroundColorRGB andSite:AAShareBubbleTypeMail];
+            [self addButtonToSubview:mailBubble];
+        }
+        if(self.showVkBubble) {
+            UIButton *mailBubble = [self shareButtonWithIcon:@"icon-aa-vk.png" backgroundColor:self.vkBackgroundColorRGB andSite:AAShareBubbleTypeVk];
             [self addButtonToSubview:mailBubble];
         }
         

@@ -18,6 +18,8 @@
 		CE5516E91858F69700818A58 /* icon-aa-tumblr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516DE1858F69700818A58 /* icon-aa-tumblr@2x.png */; };
 		CE5516EA1858F69700818A58 /* icon-aa-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516DF1858F69700818A58 /* icon-aa-twitter.png */; };
 		CE5516EB1858F69700818A58 /* icon-aa-twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516E01858F69700818A58 /* icon-aa-twitter@2x.png */; };
+		CE5516EE1858F9CD00818A58 /* icon-aa-vk.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516EC1858F9CD00818A58 /* icon-aa-vk.png */; };
+		CE5516EF1858F9CD00818A58 /* icon-aa-vk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5516ED1858F9CD00818A58 /* icon-aa-vk@2x.png */; };
 		CEBAD0A21844B41100D66BBB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAD0A11844B41100D66BBB /* UIKit.framework */; };
 		CEBAD0A41844B41100D66BBB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAD0A31844B41100D66BBB /* Foundation.framework */; };
 		CEBAD0A61844B41100D66BBB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAD0A51844B41100D66BBB /* CoreGraphics.framework */; };
@@ -47,6 +49,8 @@
 		CE5516DE1858F69700818A58 /* icon-aa-tumblr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-tumblr@2x.png"; sourceTree = "<group>"; };
 		CE5516DF1858F69700818A58 /* icon-aa-twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-twitter.png"; sourceTree = "<group>"; };
 		CE5516E01858F69700818A58 /* icon-aa-twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-twitter@2x.png"; sourceTree = "<group>"; };
+		CE5516EC1858F9CD00818A58 /* icon-aa-vk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-vk.png"; sourceTree = "<group>"; };
+		CE5516ED1858F9CD00818A58 /* icon-aa-vk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-aa-vk@2x.png"; sourceTree = "<group>"; };
 		CEBAD09E1844B41100D66BBB /* AAShareBubbles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAShareBubbles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBAD0A11844B41100D66BBB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEBAD0A31844B41100D66BBB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +101,8 @@
 				CE5516DE1858F69700818A58 /* icon-aa-tumblr@2x.png */,
 				CE5516DF1858F69700818A58 /* icon-aa-twitter.png */,
 				CE5516E01858F69700818A58 /* icon-aa-twitter@2x.png */,
+				CE5516EC1858F9CD00818A58 /* icon-aa-vk.png */,
+				CE5516ED1858F9CD00818A58 /* icon-aa-vk@2x.png */,
 			);
 			name = AAShareBubbles;
 			path = ../../AAShareBubbles;
@@ -229,6 +235,8 @@
 				CE5516E91858F69700818A58 /* icon-aa-tumblr@2x.png in Resources */,
 				CE5516EA1858F69700818A58 /* icon-aa-twitter.png in Resources */,
 				CE5516EB1858F69700818A58 /* icon-aa-twitter@2x.png in Resources */,
+				CE5516EE1858F9CD00818A58 /* icon-aa-vk.png in Resources */,
+				CE5516EF1858F9CD00818A58 /* icon-aa-vk@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

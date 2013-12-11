@@ -2,7 +2,7 @@ Intro
 ==============
 
 Animated Social share buttons control.<br>
-Supported share buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>, <b>Tumblr</b>, <b>E-mail</b>
+Supported share buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>, <b>Tumblr</b>, <b>Vkontakte (vk.com)</b>, <b>E-mail</b>
 
 <img src="http://mixdesign.kz/external/AAShareBubblesAbay.png?tmp"/>&nbsp;&nbsp;
 <img src="http://mixdesign.kz/external/AAShareBubbles.png?1"/>
@@ -23,6 +23,7 @@ shareBubbles.showTwitterBubble = YES;
 shareBubbles.showMailBubble = YES;
 shareBubbles.showGooglePlusBubble = YES;
 shareBubbles.showTumblrBubble = YES;
+shareBubbles.showVkBubble = YES;
 [shareBubbles show];
 ````
 #####Delegate
@@ -44,6 +45,9 @@ shareBubbles.showTumblrBubble = YES;
             break;
         case AAShareBubbleTypeTumblr:
             NSLog(@"Tumblr");
+            break;
+        case AAShareBubbleTypeVk:
+            NSLog(@"Vkontakte (vk.com)");
             break;
         default:
             break;
