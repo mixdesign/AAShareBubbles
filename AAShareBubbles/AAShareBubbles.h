@@ -15,8 +15,9 @@ typedef enum {
     AAShareBubbleTypeFacebook = 0,
     AAShareBubbleTypeTwitter = 1,
     AAShareBubbleTypeGooglePlus = 2,
-    AAShareBubbleTypeMail = 3,
-    AAShareBubbleTypeTumblr = 4
+    AAShareBubbleTypeTumblr = 3,
+    AAShareBubbleTypeMail = 4,
+    
 } AAShareBubbleType;
 
 @interface AAShareBubbles : UIView

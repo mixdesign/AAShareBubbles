@@ -63,7 +63,6 @@
         bgView = [[UIView alloc] initWithFrame:self.parentView.bounds];
         UITapGestureRecognizer *tapges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareViewBackgroundTapped:)];
         [bgView addGestureRecognizer:tapges];
-        [parentView addSubview:bgView];
         [parentView insertSubview:bgView belowSubview:self];
         // --
         
