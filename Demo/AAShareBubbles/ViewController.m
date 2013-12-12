@@ -41,11 +41,9 @@
     shareBubbles.showFacebookBubble = YES;
     shareBubbles.showTwitterBubble = YES;
     shareBubbles.showGooglePlusBubble = YES;
-    shareBubbles.showMailBubble = YES;
     shareBubbles.showTumblrBubble = YES;
     shareBubbles.showVkBubble = YES;
     shareBubbles.showLinkedInBubble = YES;
-    shareBubbles.showPinterestBubble = YES;
     [shareBubbles show];
 }
 
@@ -71,9 +69,6 @@
         case AAShareBubbleTypeTwitter:
             NSLog(@"Twitter");
             break;
-        case AAShareBubbleTypeMail:
-            NSLog(@"Email");
-            break;
         case AAShareBubbleTypeGooglePlus:
             NSLog(@"Google+");
             break;
@@ -85,9 +80,6 @@
             break;
         case AAShareBubbleTypeLinkedIn:
             NSLog(@"LinkedIn");
-            break;
-        case AAShareBubbleTypePinterest:
-            NSLog(@"Pinterest");
             break;
         default:
             break;
