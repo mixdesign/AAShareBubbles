@@ -45,6 +45,7 @@
     shareBubbles.showTumblrBubble = YES;
     shareBubbles.showVkBubble = YES;
     shareBubbles.showLinkedInBubble = YES;
+    shareBubbles.showPinterestBubble = YES;
     [shareBubbles show];
 }
 
@@ -84,6 +85,9 @@
             break;
         case AAShareBubbleTypeLinkedIn:
             NSLog(@"LinkedIn");
+            break;
+        case AAShareBubbleTypePinterest:
+            NSLog(@"Pinterest");
             break;
         default:
             break;
