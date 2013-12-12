@@ -44,6 +44,7 @@
     shareBubbles.showMailBubble = YES;
     shareBubbles.showTumblrBubble = YES;
     shareBubbles.showVkBubble = YES;
+    shareBubbles.showLinkedInBubble = YES;
     [shareBubbles show];
 }
 
@@ -81,7 +82,9 @@
         case AAShareBubbleTypeVk:
             NSLog(@"Vkontakte (vk.com)");
             break;
-            
+        case AAShareBubbleTypeLinkedIn:
+            NSLog(@"LinkedIn");
+            break;
         default:
             break;
     }

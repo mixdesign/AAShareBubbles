@@ -18,6 +18,7 @@ typedef enum {
     AAShareBubbleTypeTumblr = 3,
     AAShareBubbleTypeMail = 4,
     AAShareBubbleTypeVk = 5, // Vkontakte (vk.com)
+    AAShareBubbleTypeLinkedIn = 6,
     
 } AAShareBubbleType;
 
@@ -37,6 +38,7 @@ typedef enum {
 @property (nonatomic, assign) BOOL showGooglePlusBubble;
 @property (nonatomic, assign) BOOL showTumblrBubble;
 @property (nonatomic, assign) BOOL showVkBubble;
+@property (nonatomic, assign) BOOL showLinkedInBubble;
 
 @property (nonatomic, assign) int radius;
 @property (nonatomic, assign) int bubbleRadius;
@@ -49,6 +51,7 @@ typedef enum {
 @property (nonatomic, assign) int googlePlusBackgroundColorRGB;
 @property (nonatomic, assign) int tumblrBackgroundColorRGB;
 @property (nonatomic, assign) int vkBackgroundColorRGB;
+@property (nonatomic, assign) int linkedInBackgroundColorRGB;
 
 -(id)initWithPoint:(CGPoint)point radius:(int)radiusValue inView:(UIView *)inView;
 
