@@ -2,7 +2,7 @@ Intro
 ==============
 
 Animated Social share buttons control.<br>
-Supported share buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>, <b>Tumblr</b>, <b>Vkontakte (vk.com)</b>, <b>E-mail</b>
+Supported share buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>, <b>Tumblr</b>, <b>Vkontakte (vk.com)</b>, <b>LinkedIn</b>, <b>Pinterest</b>, <b>E-mail</b>
 
 <img src="http://mixdesign.kz/external/AAShareBubblesAbay.png?tmp"/>&nbsp;&nbsp;
 <img src="http://mixdesign.kz/external/AAShareBubbles.png?2"/>
