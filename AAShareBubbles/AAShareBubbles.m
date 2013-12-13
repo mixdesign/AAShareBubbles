@@ -226,7 +226,7 @@
     circle.alpha = 0.97;
     
     // Circle icon
-    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconName]];
+    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"AAShareBubbles.bundle/%@", iconName]]];
     CGRect f = icon.frame;
     f.origin.x = (circle.frame.size.width - f.size.width) * 0.5;
     f.origin.y = (circle.frame.size.height - f.size.height) * 0.5;
