@@ -31,6 +31,8 @@
         self.googlePlusBackgroundColorRGB = 0xd95433;
         self.tumblrBackgroundColorRGB = 0x385877;
         self.vkBackgroundColorRGB = 0x4a74a5;
+        self.linkedInBackgroundColorRGB = 0x008dd2;
+        self.pinterestBackgroundColorRGB = 0xb61d23;
     }
     return self;
 }
@@ -92,8 +94,16 @@
             [self addButtonToSubview:mailBubble];
         }
         if(self.showVkBubble) {
-            UIButton *mailBubble = [self shareButtonWithIcon:@"icon-aa-vk.png" backgroundColor:self.vkBackgroundColorRGB andSite:AAShareBubbleTypeVk];
-            [self addButtonToSubview:mailBubble];
+            UIButton *vkBubble = [self shareButtonWithIcon:@"icon-aa-vk.png" backgroundColor:self.vkBackgroundColorRGB andSite:AAShareBubbleTypeVk];
+            [self addButtonToSubview:vkBubble];
+        }
+        if(self.showLinkedInBubble) {
+            UIButton *linkedInBubble = [self shareButtonWithIcon:@"icon-aa-linkedin.png" backgroundColor:self.linkedInBackgroundColorRGB andSite:AAShareBubbleTypeLinkedIn];
+            [self addButtonToSubview:linkedInBubble];
+        }
+        if(self.showPinterestBubble) {
+            UIButton *pinterestBubble = [self shareButtonWithIcon:@"icon-aa-pinterest.png" backgroundColor:self.pinterestBackgroundColorRGB andSite:AAShareBubbleTypePinterest];
+            [self addButtonToSubview:pinterestBubble];
         }
         
         if(bubbles.count == 0) return;
