@@ -7,6 +7,15 @@ Supported share buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>, <
 <img src="http://mixdesign.kz/external/AAShareBubblesAbay.png?tmp"/>&nbsp;&nbsp;
 <img src="http://mixdesign.kz/external/AAShareBubbles.png?2"/>
 
+Installation
+------
+
+Two ways:<br>
+1. Just drag n drop **AAShareBubbles** folder into your xcode project.<br>
+2. **Cocoapods:**
+```ruby
+pod 'AAShareBubbles'
+```
 Usage:
 ------
 ```objective-c
@@ -59,6 +68,7 @@ shareBubbles.showVkBubble = YES;
 }
 
 ```
+
 Requirements:
 ------------
 `ARC`, `iOS 5+`, `Xcode 4+`
