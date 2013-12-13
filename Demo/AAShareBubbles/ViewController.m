@@ -86,6 +86,10 @@
     }
 }
 
+-(void)aaShareBubblesDidHide {
+    NSLog(@"All Bubbles hidden");
+}
+
 #pragma mark -
 
 - (void)didReceiveMemoryWarning

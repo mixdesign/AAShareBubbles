@@ -53,6 +53,11 @@ shareBubbles.showVkBubble = YES;
             break;
     }
 }
+
+-(void)aaShareBubblesDidHide {
+    NSLog(@"All Bubbles hidden");
+}
+
 ```
 Requirements:
 ------------

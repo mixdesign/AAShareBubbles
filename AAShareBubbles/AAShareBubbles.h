@@ -64,5 +64,13 @@ typedef enum {
 @end
 
 @protocol AAShareBubblesDelegate<NSObject>
+
+@optional
+
+// On buttons pressed
 -(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType;
+
+// On bubbles hide
+-(void)aaShareBubblesDidHide;
+
 @end
