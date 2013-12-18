@@ -11,7 +11,7 @@
 
 @protocol AAShareBubblesDelegate;
 
-typedef enum {
+typedef enum AAShareBubbleType : int {
     AAShareBubbleTypeFacebook = 0,
     AAShareBubbleTypeTwitter = 1,
     AAShareBubbleTypeGooglePlus = 2,
@@ -20,16 +20,12 @@ typedef enum {
     AAShareBubbleTypeVk = 5, // Vkontakte (vk.com)
     AAShareBubbleTypeLinkedIn = 6,
     AAShareBubbleTypePinterest = 7,
+    AAShareBubbleTypeYoutube = 8,
+    AAShareBubbleTypeVimeo = 9,
     
 } AAShareBubbleType;
 
-@interface AAShareBubbles : UIView
-{
-    NSMutableArray *bubbles;
-    
-    // Local
-    UIView *bgView;
-}
+@interface AAShareBubbles : UIView {}
 
 @property (nonatomic, assign) id<AAShareBubblesDelegate> delegate;
 
@@ -41,6 +37,8 @@ typedef enum {
 @property (nonatomic, assign) BOOL showVkBubble;
 @property (nonatomic, assign) BOOL showLinkedInBubble;
 @property (nonatomic, assign) BOOL showPinterestBubble;
+@property (nonatomic, assign) BOOL showYoutubeBubble;
+@property (nonatomic, assign) BOOL showVimeoBubble;
 
 @property (nonatomic, assign) int radius;
 @property (nonatomic, assign) int bubbleRadius;
@@ -55,6 +53,8 @@ typedef enum {
 @property (nonatomic, assign) int vkBackgroundColorRGB;
 @property (nonatomic, assign) int linkedInBackgroundColorRGB;
 @property (nonatomic, assign) int pinterestBackgroundColorRGB;
+@property (nonatomic, assign) int youtubeBackgroundColorRGB;
+@property (nonatomic, assign) int vimeoBackgroundColorRGB;
 
 -(id)initWithPoint:(CGPoint)point radius:(int)radiusValue inView:(UIView *)inView;
 

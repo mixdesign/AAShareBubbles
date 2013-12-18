@@ -14,6 +14,12 @@
 @end
 
 @implementation AAShareBubbles
+{
+    NSMutableArray *bubbles;
+    NSMutableDictionary *bubbleIndexTypes;
+    
+    UIView *bgView;
+}
 
 @synthesize delegate = _delegate, parentView;
 
@@ -33,6 +39,8 @@
         self.vkBackgroundColorRGB = 0x4a74a5;
         self.linkedInBackgroundColorRGB = 0x008dd2;
         self.pinterestBackgroundColorRGB = 0xb61d23;
+        self.youtubeBackgroundColorRGB = 0xce3025;
+        self.vimeoBackgroundColorRGB = 0x00acf2;
     }
     return self;
 }
@@ -40,8 +48,9 @@
 #pragma mark -
 #pragma mark Actions
 
--(void)buttonWasTapped:(UIButton *)sender{
-    [self shareButtonTappedWithType:sender.tag];
+-(void)buttonWasTapped:(UIButton *)button {
+    AAShareBubbleType buttonType = [[bubbleIndexTypes objectForKey:[NSNumber numberWithInteger:button.tag]] intValue];
+    [self shareButtonTappedWithType:buttonType];
 }
 
 -(void)shareButtonTappedWithType:(AAShareBubbleType)buttonType {
@@ -72,39 +81,20 @@
         if(bubbles) {
             bubbles = nil;
         }
+        
         bubbles = [[NSMutableArray alloc] init];
-        if(self.showFacebookBubble) {
-            UIButton *facebookBubble = [self shareButtonWithIcon:@"icon-aa-facebook.png" backgroundColor:self.facebookBackgroundColorRGB andSite:AAShareBubbleTypeFacebook];
-            [self addButtonToSubview:facebookBubble];
-        }
-        if(self.showTwitterBubble) {
-            UIButton *twitterBubble = [self shareButtonWithIcon:@"icon-aa-twitter.png" backgroundColor:self.twitterBackgroundColorRGB andSite:AAShareBubbleTypeTwitter];
-            [self addButtonToSubview:twitterBubble];
-        }
-        if(self.showGooglePlusBubble) {
-            UIButton *googlePlusBubble = [self shareButtonWithIcon:@"icon-aa-googleplus.png" backgroundColor:self.googlePlusBackgroundColorRGB andSite:AAShareBubbleTypeGooglePlus];
-            [self addButtonToSubview:googlePlusBubble];
-        }
-        if(self.showTumblrBubble) {
-            UIButton *tumblrBubble = [self shareButtonWithIcon:@"icon-aa-tumblr.png" backgroundColor:self.tumblrBackgroundColorRGB andSite:AAShareBubbleTypeTumblr];
-            [self addButtonToSubview:tumblrBubble];
-        }
-        if(self.showMailBubble) {
-            UIButton *mailBubble = [self shareButtonWithIcon:@"icon-aa-at.png" backgroundColor:self.mailBackgroundColorRGB andSite:AAShareBubbleTypeMail];
-            [self addButtonToSubview:mailBubble];
-        }
-        if(self.showVkBubble) {
-            UIButton *vkBubble = [self shareButtonWithIcon:@"icon-aa-vk.png" backgroundColor:self.vkBackgroundColorRGB andSite:AAShareBubbleTypeVk];
-            [self addButtonToSubview:vkBubble];
-        }
-        if(self.showLinkedInBubble) {
-            UIButton *linkedInBubble = [self shareButtonWithIcon:@"icon-aa-linkedin.png" backgroundColor:self.linkedInBackgroundColorRGB andSite:AAShareBubbleTypeLinkedIn];
-            [self addButtonToSubview:linkedInBubble];
-        }
-        if(self.showPinterestBubble) {
-            UIButton *pinterestBubble = [self shareButtonWithIcon:@"icon-aa-pinterest.png" backgroundColor:self.pinterestBackgroundColorRGB andSite:AAShareBubbleTypePinterest];
-            [self addButtonToSubview:pinterestBubble];
-        }
+        bubbleIndexTypes = [[NSMutableDictionary alloc] init];
+        
+        if(self.showFacebookBubble)     [self createButtonWithIcon:@"icon-aa-facebook.png" backgroundColor:self.facebookBackgroundColorRGB andType:AAShareBubbleTypeFacebook];
+        if(self.showTwitterBubble)      [self createButtonWithIcon:@"icon-aa-twitter.png" backgroundColor:self.twitterBackgroundColorRGB andType:AAShareBubbleTypeTwitter];
+        if(self.showGooglePlusBubble)   [self createButtonWithIcon:@"icon-aa-googleplus.png" backgroundColor:self.googlePlusBackgroundColorRGB andType:AAShareBubbleTypeGooglePlus];
+        if(self.showTumblrBubble)       [self createButtonWithIcon:@"icon-aa-tumblr.png" backgroundColor:self.tumblrBackgroundColorRGB andType:AAShareBubbleTypeTumblr];
+        if(self.showMailBubble)         [self createButtonWithIcon:@"icon-aa-at.png" backgroundColor:self.mailBackgroundColorRGB andType:AAShareBubbleTypeMail];
+        if(self.showVkBubble)           [self createButtonWithIcon:@"icon-aa-vk.png" backgroundColor:self.vkBackgroundColorRGB andType:AAShareBubbleTypeVk];
+        if(self.showLinkedInBubble)     [self createButtonWithIcon:@"icon-aa-linkedin.png" backgroundColor:self.linkedInBackgroundColorRGB andType:AAShareBubbleTypeLinkedIn];
+        if(self.showPinterestBubble)    [self createButtonWithIcon:@"icon-aa-pinterest.png" backgroundColor:self.pinterestBackgroundColorRGB andType:AAShareBubbleTypePinterest];
+        if(self.showYoutubeBubble)      [self createButtonWithIcon:@"icon-aa-youtube.png" backgroundColor:self.youtubeBackgroundColorRGB andType:AAShareBubbleTypeYoutube];
+        if(self.showVimeoBubble)        [self createButtonWithIcon:@"icon-aa-vimeo.png" backgroundColor:self.vimeoBackgroundColorRGB andType:AAShareBubbleTypeVimeo];
         
         if(bubbles.count == 0) return;
         
@@ -216,11 +206,11 @@
     }];
 }
 
--(UIButton *)shareButtonWithIcon:(NSString *)iconName backgroundColor:(int)rgb andSite:(NSInteger)site
+-(void)createButtonWithIcon:(NSString *)iconName backgroundColor:(int)rgb andType:(AAShareBubbleType)type
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:self action:@selector(buttonWasTapped:) forControlEvents:UIControlEventTouchUpInside];
     button.frame = CGRectMake(0, 0, 2 * self.bubbleRadius, 2 * self.bubbleRadius);
-    button.tag = site;
     
     // Circle background
     UIView *circle = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2 * self.bubbleRadius, 2 * self.bubbleRadius)];
@@ -240,7 +230,10 @@
     
     [button setBackgroundImage:[self imageWithView:circle] forState:UIControlStateNormal];
     
-    return button;
+    [bubbles addObject:button];
+    [bubbleIndexTypes setObject:[NSNumber numberWithInteger:type] forKey:[NSNumber numberWithInteger:(bubbles.count - 1)]];
+    
+    [self addSubview:button];
 }
 
 -(UIColor *)colorFromRGB:(int)rgb {
@@ -256,10 +249,4 @@
     return img;
 }
 
--(void)addButtonToSubview:(UIButton *)button
-{
-    [button addTarget:self action:@selector(buttonWasTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:button];
-    [bubbles addObject:button];
-}
 @end
