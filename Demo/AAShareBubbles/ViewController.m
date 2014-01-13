@@ -46,6 +46,7 @@
     shareBubbles.showLinkedInBubble = YES;
     shareBubbles.showYoutubeBubble = YES;
     shareBubbles.showVimeoBubble = YES;
+    shareBubbles.showRedditBubble = YES;
     [shareBubbles show];
 }
 
@@ -88,6 +89,9 @@
             break;
         case AAShareBubbleTypeVimeo:
             NSLog(@"Vimeo");
+            break;
+        case AAShareBubbleTypeReddit:
+            NSLog(@"Reddit");
             break;
         default:
             break;

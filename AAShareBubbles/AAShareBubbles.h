@@ -22,6 +22,7 @@ typedef enum AAShareBubbleType : int {
     AAShareBubbleTypePinterest = 7,
     AAShareBubbleTypeYoutube = 8,
     AAShareBubbleTypeVimeo = 9,
+    AAShareBubbleTypeReddit = 10,
     
 } AAShareBubbleType;
 
@@ -39,6 +40,7 @@ typedef enum AAShareBubbleType : int {
 @property (nonatomic, assign) BOOL showPinterestBubble;
 @property (nonatomic, assign) BOOL showYoutubeBubble;
 @property (nonatomic, assign) BOOL showVimeoBubble;
+@property (nonatomic, assign) BOOL showRedditBubble;
 
 @property (nonatomic, assign) int radius;
 @property (nonatomic, assign) int bubbleRadius;
@@ -55,6 +57,7 @@ typedef enum AAShareBubbleType : int {
 @property (nonatomic, assign) int pinterestBackgroundColorRGB;
 @property (nonatomic, assign) int youtubeBackgroundColorRGB;
 @property (nonatomic, assign) int vimeoBackgroundColorRGB;
+@property (nonatomic, assign) int redditBackgroundColorRGB;
 
 -(id)initWithPoint:(CGPoint)point radius:(int)radiusValue inView:(UIView *)inView;
 

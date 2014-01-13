@@ -41,6 +41,7 @@
         self.pinterestBackgroundColorRGB = 0xb61d23;
         self.youtubeBackgroundColorRGB = 0xce3025;
         self.vimeoBackgroundColorRGB = 0x00acf2;
+        self.redditBackgroundColorRGB = 0xffffff;
     }
     return self;
 }
@@ -95,6 +96,7 @@
         if(self.showPinterestBubble)    [self createButtonWithIcon:@"icon-aa-pinterest.png" backgroundColor:self.pinterestBackgroundColorRGB andType:AAShareBubbleTypePinterest];
         if(self.showYoutubeBubble)      [self createButtonWithIcon:@"icon-aa-youtube.png" backgroundColor:self.youtubeBackgroundColorRGB andType:AAShareBubbleTypeYoutube];
         if(self.showVimeoBubble)        [self createButtonWithIcon:@"icon-aa-vimeo.png" backgroundColor:self.vimeoBackgroundColorRGB andType:AAShareBubbleTypeVimeo];
+        if(self.showRedditBubble)        [self createButtonWithIcon:@"icon-aa-reddit.png" backgroundColor:self.redditBackgroundColorRGB andType:AAShareBubbleTypeReddit];
         
         if(bubbles.count == 0) return;
         
