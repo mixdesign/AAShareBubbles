@@ -47,6 +47,7 @@
     shareBubbles.showYoutubeBubble = YES;
     shareBubbles.showVimeoBubble = YES;
     shareBubbles.showRedditBubble = YES;
+    shareBubbles.showPinterestBubble = YES;
     [shareBubbles show];
 }
 
