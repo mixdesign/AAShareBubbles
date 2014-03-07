@@ -48,6 +48,7 @@
     shareBubbles.showVimeoBubble = YES;
     shareBubbles.showRedditBubble = YES;
     shareBubbles.showPinterestBubble = YES;
+    shareBubbles.showInstagramBubble = YES;
     [shareBubbles show];
 }
 
