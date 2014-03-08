@@ -73,6 +73,10 @@ Requirements:
 ------------
 `ARC`, `iOS 5+`, `Xcode 4+`
 
+Demo video:
+-------
+http://www.youtube.com/watch?v=0yvl4_db1F4
+
 Todo:
 -------
 - Add more social buttons.
