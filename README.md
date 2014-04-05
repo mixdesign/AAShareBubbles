@@ -4,6 +4,9 @@ Intro
 Animated Social share buttons control.<br>
 Supported share buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>, <b>Tumblr</b>, <b>Vkontakte (vk.com)</b>, <b>LinkedIn</b>, <b>Pinterest</b>, <b>Youtube</b>, <b>Vimeo</b>, <b>Reddit</b>, <b>Instagram</b>, <b>E-mail</b>
 
+**Demo video:**<br>
+http://www.youtube.com/watch?v=0yvl4_db1F4
+
 <img src="http://kuran.kz/external/abay1.png"/>&nbsp;&nbsp;
 <img src="http://kuran.kz/external/abay2.png"/>
 
@@ -73,9 +76,6 @@ Requirements:
 ------------
 `ARC`, `iOS 5+`, `Xcode 4+`
 
-Demo video:
--------
-http://www.youtube.com/watch?v=0yvl4_db1F4
 
 Todo:
 -------
