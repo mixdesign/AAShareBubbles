@@ -7,8 +7,8 @@ Supported buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>, <b>Tumb
 **Demo video:**<br>
 http://www.youtube.com/watch?v=0yvl4_db1F4
 
-<img src="http://kuran.kz/external/abay1.png"/>&nbsp;&nbsp;
-<img src="http://kuran.kz/external/abay2.png"/>
+<img src="http://mixdesign.kz/external/media/AAShareBubbles/bubbles.png?1"/>&nbsp;&nbsp;
+<img src="http://mixdesign.kz/external/media/AAShareBubbles/abay2.png"/>
 
 Installation
 ------
