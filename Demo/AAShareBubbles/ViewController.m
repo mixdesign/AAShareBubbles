@@ -49,6 +49,7 @@
     shareBubbles.showRedditBubble = YES;
     shareBubbles.showPinterestBubble = YES;
     shareBubbles.showInstagramBubble = YES;
+    shareBubbles.showWhatsappBubble = YES;
     [shareBubbles show];
 }
 

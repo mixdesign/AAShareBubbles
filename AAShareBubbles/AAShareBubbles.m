@@ -44,6 +44,7 @@
         self.redditBackgroundColorRGB = 0xffffff;
         self.instagramBackgroundColorRGB = 0x2e5e89;
         self.favoriteBackgroundColorRGB = 0xedd013;
+        self.whatsappBackgroundColorRGB = 0x00B000;
     }
     return self;
 }
@@ -101,6 +102,7 @@
         if(self.showRedditBubble)        [self createButtonWithIcon:@"icon-aa-reddit.png" backgroundColor:self.redditBackgroundColorRGB andType:AAShareBubbleTypeReddit];
         if(self.showInstagramBubble)     [self createButtonWithIcon:@"icon-aa-instagram.png" backgroundColor:self.instagramBackgroundColorRGB andType:AAShareBubbleTypeInstagram];
         if(self.showFavoriteBubble) [self createButtonWithIcon:@"icon-aa-star.png" backgroundColor:self.favoriteBackgroundColorRGB andType:AAShareBubbleTypeFavorite];
+        if(self.showWhatsappBubble) [self createButtonWithIcon:@"icon-aa-whatsapp.png" backgroundColor:self.whatsappBackgroundColorRGB andType:AAShareBubbleTypeWhatsapp];
         
         if(bubbles.count == 0) return;
         
