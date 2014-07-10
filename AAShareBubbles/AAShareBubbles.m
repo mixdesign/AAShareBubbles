@@ -203,8 +203,8 @@
                 [bgView removeFromSuperview];
                 bgView = nil;
                 
-                if([self.delegate respondsToSelector:@selector(aaShareBubblesDidHide)]) {
-                    [self.delegate aaShareBubblesDidHide];
+                if([self.delegate respondsToSelector:@selector(aaShareBubblesDidHide:)]) {
+                    [self.delegate aaShareBubblesDidHide:self];
                 }
                 
                 [self removeFromSuperview];
