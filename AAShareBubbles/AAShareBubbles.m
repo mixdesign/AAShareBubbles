@@ -8,7 +8,6 @@
 //
 
 #import "AAShareBubbles.h"
-#import <QuartzCore/QuartzCore.h>
 
 @interface AAShareBubbles()
 @end
@@ -17,11 +16,17 @@
 {
     NSMutableArray *bubbles;
     NSMutableDictionary *bubbleIndexTypes;
-    
-    UIView *bgView;
+
+    UIView *faderView;
 }
 
 @synthesize delegate = _delegate, parentView;
+
+- (id)initCenteredInWindowWithRadius:(int)radiusValue
+{
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    return [self initWithPoint:CGPointMake((CGFloat) (window.frame.size.width * 0.5), (CGFloat) (window.frame.size.height * 0.5)) radius:radiusValue inView:window];
+}
 
 - (id)initWithPoint:(CGPoint)point radius:(int)radiusValue inView:(UIView *)inView
 {
@@ -30,6 +35,7 @@
         self.radius = radiusValue;
         self.bubbleRadius = 40;
         self.parentView = inView;
+        self.faderAlpha = 0.15;
         
         self.facebookBackgroundColorRGB = 0x3c5a9a;
         self.twitterBackgroundColorRGB = 0x3083be;
@@ -53,7 +59,7 @@
 #pragma mark Actions
 
 -(void)buttonWasTapped:(UIButton *)button {
-    AAShareBubbleType buttonType = [[bubbleIndexTypes objectForKey:[NSNumber numberWithInteger:button.tag]] intValue];
+    AAShareBubbleType buttonType = (AAShareBubbleType) [bubbleIndexTypes[@(button.tag)] intValue];
     [self shareButtonTappedWithType:buttonType];
 }
 
@@ -76,10 +82,16 @@
         [self.parentView addSubview:self];
         
         // Create background
-        bgView = [[UIView alloc] initWithFrame:self.parentView.bounds];
+        faderView = [[UIView alloc] initWithFrame:self.parentView.bounds];
+        faderView.backgroundColor = [UIColor blackColor];
+        faderView.alpha = 0.0f;
         UITapGestureRecognizer *tapges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareViewBackgroundTapped:)];
-        [bgView addGestureRecognizer:tapges];
-        [parentView insertSubview:bgView belowSubview:self];
+        [faderView addGestureRecognizer:tapges];
+        [parentView insertSubview:faderView belowSubview:self];
+
+        [UIView animateWithDuration:0.25 animations:^{
+            faderView.alpha = self.faderAlpha;
+        }];
         // --
         
         if(bubbles) {
@@ -99,31 +111,31 @@
         if(self.showPinterestBubble)    [self createButtonWithIcon:@"icon-aa-pinterest.png" backgroundColor:self.pinterestBackgroundColorRGB andType:AAShareBubbleTypePinterest];
         if(self.showYoutubeBubble)      [self createButtonWithIcon:@"icon-aa-youtube.png" backgroundColor:self.youtubeBackgroundColorRGB andType:AAShareBubbleTypeYoutube];
         if(self.showVimeoBubble)        [self createButtonWithIcon:@"icon-aa-vimeo.png" backgroundColor:self.vimeoBackgroundColorRGB andType:AAShareBubbleTypeVimeo];
-        if(self.showRedditBubble)        [self createButtonWithIcon:@"icon-aa-reddit.png" backgroundColor:self.redditBackgroundColorRGB andType:AAShareBubbleTypeReddit];
-        if(self.showInstagramBubble)     [self createButtonWithIcon:@"icon-aa-instagram.png" backgroundColor:self.instagramBackgroundColorRGB andType:AAShareBubbleTypeInstagram];
-        if(self.showFavoriteBubble) [self createButtonWithIcon:@"icon-aa-star.png" backgroundColor:self.favoriteBackgroundColorRGB andType:AAShareBubbleTypeFavorite];
-        if(self.showWhatsappBubble) [self createButtonWithIcon:@"icon-aa-whatsapp.png" backgroundColor:self.whatsappBackgroundColorRGB andType:AAShareBubbleTypeWhatsapp];
+        if(self.showRedditBubble)       [self createButtonWithIcon:@"icon-aa-reddit.png" backgroundColor:self.redditBackgroundColorRGB andType:AAShareBubbleTypeReddit];
+        if(self.showInstagramBubble)    [self createButtonWithIcon:@"icon-aa-instagram.png" backgroundColor:self.instagramBackgroundColorRGB andType:AAShareBubbleTypeInstagram];
+        if(self.showFavoriteBubble)     [self createButtonWithIcon:@"icon-aa-star.png" backgroundColor:self.favoriteBackgroundColorRGB andType:AAShareBubbleTypeFavorite];
+        if(self.showWhatsappBubble)     [self createButtonWithIcon:@"icon-aa-whatsapp.png" backgroundColor:self.whatsappBackgroundColorRGB andType:AAShareBubbleTypeWhatsapp];
         
         if(bubbles.count == 0) return;
         
         float bubbleDistanceFromPivot = self.radius - self.bubbleRadius;
         
         float bubblesBetweenAngel = 360 / bubbles.count;
-        float angely = (180 - bubblesBetweenAngel) * 0.5;
+        float angely = (float) ((180 - bubblesBetweenAngel) * 0.5);
         float startAngel = 180 - angely;
         
         NSMutableArray *coordinates = [NSMutableArray array];
         
         for (int i = 0; i < bubbles.count; ++i)
         {
-            UIButton *bubble = [bubbles objectAtIndex:i];
+            UIButton *bubble = bubbles[i];
             bubble.tag = i;
             
             float angle = startAngel + i * bubblesBetweenAngel;
-            float x = cos(angle * M_PI / 180) * bubbleDistanceFromPivot + self.radius;
-            float y = sin(angle * M_PI / 180) * bubbleDistanceFromPivot + self.radius;
-            
-            [coordinates addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:x], @"x", [NSNumber numberWithFloat:y], @"y", nil]];
+            float x = (float) (cos(angle * M_PI / 180) * bubbleDistanceFromPivot + self.radius);
+            float y = (float) (sin(angle * M_PI / 180) * bubbleDistanceFromPivot + self.radius);
+
+            [coordinates addObject:@{@"x" : @(x), @"y" : @(y)}];
             
             bubble.transform = CGAffineTransformMakeScale(0.001, 0.001);
             bubble.center = CGPointMake(self.radius, self.radius);
@@ -132,9 +144,9 @@
         int inetratorI = 0;
         for (NSDictionary *coordinate in coordinates)
         {
-            UIButton *bubble = [bubbles objectAtIndex:inetratorI];
-            float delayTime = inetratorI * 0.1;
-            [self performSelector:@selector(showBubbleWithAnimation:) withObject:[NSDictionary dictionaryWithObjectsAndKeys:bubble, @"button", coordinate, @"coordinate", nil] afterDelay:delayTime];
+            UIButton *bubble = bubbles[inetratorI];
+            float delayTime = (float) (inetratorI * 0.1);
+            [self performSelector:@selector(showBubbleWithAnimation:) withObject:@{@"button" : bubble, @"coordinate" : coordinate} afterDelay:delayTime];
             ++inetratorI;
         }
     }
@@ -147,7 +159,7 @@
         int inetratorI = 0;
         for (UIButton *bubble in bubbles)
         {
-            float delayTime = inetratorI * 0.1;
+            CGFloat delayTime = (CGFloat) (inetratorI * 0.1);
             [self performSelector:@selector(hideBubbleWithAnimation:) withObject:bubble afterDelay:delayTime];
             ++inetratorI;
         }
@@ -157,18 +169,18 @@
 #pragma mark -
 #pragma mark Helper functions
 
--(void)shareViewBackgroundTapped:(UITapGestureRecognizer *)tapGesture {
-    [tapGesture.view removeFromSuperview];
+-(void)shareViewBackgroundTapped:(UITapGestureRecognizer *)tapGesture
+{
     [self hide];
 }
 
 -(void)showBubbleWithAnimation:(NSDictionary *)info
 {
-    UIButton *bubble = (UIButton *)[info objectForKey:@"button"];
-    NSDictionary *coordinate = (NSDictionary *)[info objectForKey:@"coordinate"];
+    UIButton *bubble = (UIButton *) info[@"button"];
+    NSDictionary *coordinate = (NSDictionary *) info[@"coordinate"];
     
     [UIView animateWithDuration:0.25 animations:^{
-        bubble.center = CGPointMake([[coordinate objectForKey:@"x"] floatValue], [[coordinate objectForKey:@"y"] floatValue]);
+        bubble.center = CGPointMake([coordinate[@"x"] floatValue], [coordinate[@"y"] floatValue]);
         bubble.alpha = 1;
         bubble.transform = CGAffineTransformMakeScale(1.2, 1.2);
     } completion:^(BOOL finished) {
@@ -200,14 +212,16 @@
             if(bubble.tag == bubbles.count - 1) {
                 self.isAnimating = NO;
                 self.hidden = YES;
-                [bgView removeFromSuperview];
-                bgView = nil;
-                
-                if([self.delegate respondsToSelector:@selector(aaShareBubblesDidHide:)]) {
-                    [self.delegate aaShareBubblesDidHide:self];
-                }
-                
-                [self removeFromSuperview];
+
+                [UIView animateWithDuration:0.25 animations:^{
+                    faderView.alpha = 0;
+                } completion:^(BOOL finished) {
+                    [faderView removeFromSuperview];
+                    if([self.delegate respondsToSelector:@selector(aaShareBubblesDidHide:)]) {
+                        [self.delegate aaShareBubblesDidHide:self];
+                    }
+                    [self removeFromSuperview];
+                }];
             }
             [bubble removeFromSuperview];
         }];
@@ -231,15 +245,15 @@
     // Circle icon
     UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"AAShareBubbles.bundle/%@", iconName]]];
     CGRect f = icon.frame;
-    f.origin.x = (circle.frame.size.width - f.size.width) * 0.5;
-    f.origin.y = (circle.frame.size.height - f.size.height) * 0.5;
+    f.origin.x = (CGFloat) ((circle.frame.size.width - f.size.width) * 0.5);
+    f.origin.y = (CGFloat) ((circle.frame.size.height - f.size.height) * 0.5);
     icon.frame = f;
     [circle addSubview:icon];
     
     [button setBackgroundImage:[self imageWithView:circle] forState:UIControlStateNormal];
     
     [bubbles addObject:button];
-    [bubbleIndexTypes setObject:[NSNumber numberWithInteger:type] forKey:[NSNumber numberWithInteger:(bubbles.count - 1)]];
+    bubbleIndexTypes[@(bubbles.count - 1)] = @(type);
     
     [self addSubview:button];
 }

@@ -29,7 +29,7 @@ typedef enum AAShareBubbleType : int {
     
 } AAShareBubbleType;
 
-@interface AAShareBubbles : UIView {}
+@interface AAShareBubbles : UIView
 
 @property (nonatomic, assign) id<AAShareBubblesDelegate> delegate;
 
@@ -48,10 +48,19 @@ typedef enum AAShareBubbleType : int {
 @property (nonatomic, assign) BOOL showFavoriteBubble;
 @property (nonatomic, assign) BOOL showWhatsappBubble;
 
+// The radius from center point to each share button
 @property (nonatomic, assign) int radius;
+
+// Bubble button radius
 @property (nonatomic, assign) int bubbleRadius;
+
+// Define if bubbles are currently animating (showing or hiding)
 @property (nonatomic, assign) BOOL isAnimating;
+
 @property (nonatomic, weak) UIView *parentView;
+
+// The fader view alpha, by default is 0.15
+@property(nonatomic, assign) CGFloat faderAlpha;
 
 @property (nonatomic, assign) int facebookBackgroundColorRGB;
 @property (nonatomic, assign) int twitterBackgroundColorRGB;
@@ -69,6 +78,9 @@ typedef enum AAShareBubbleType : int {
 @property (nonatomic, assign) int whatsappBackgroundColorRGB;
 
 -(id)initWithPoint:(CGPoint)point radius:(int)radiusValue inView:(UIView *)inView;
+
+// Share bubbles will appear in UIWindow instance
+-(id)initCenteredInWindowWithRadius:(int)radiusValue;
 
 -(void)show;
 -(void)hide;
