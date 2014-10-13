@@ -37,6 +37,10 @@ shareBubbles.showGooglePlusBubble = YES;
 shareBubbles.showTumblrBubble = YES;
 shareBubbles.showVkBubble = YES;
 [shareBubbles show];
+
+// Use another initialization method to create share buttons on UIWindow instance (at the center)
+AAShareBubbles *shareBubbles = [[AAShareBubbles alloc] initCenteredInWindowWithRadius:100];
+...
 ````
 #####Delegate
 ```objective-c
