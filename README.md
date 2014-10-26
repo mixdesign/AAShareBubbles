@@ -70,7 +70,7 @@ AAShareBubbles *shareBubbles = [[AAShareBubbles alloc] initCenteredInWindowWithR
     }
 }
 
--(void)aaShareBubblesDidHide {
+-(void)aaShareBubblesDidHide:(AAShareBubbles *)bubbles {
     NSLog(@"All Bubbles hidden");
 }
 
