@@ -101,7 +101,7 @@
     }
 }
 
--(void)aaShareBubblesDidHide {
+-(void)aaShareBubblesDidHide:(AAShareBubbles*)bubbles {
     NSLog(@"All Bubbles hidden");
 }
 
