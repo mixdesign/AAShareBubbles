@@ -23,6 +23,8 @@
 		CEBAD0C11844B41100D66BBB /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0BF1844B41100D66BBB /* ViewController_iPad.xib */; };
 		CEBAD0EF1844BDDD00D66BBB /* icon-share.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0ED1844BDDD00D66BBB /* icon-share.png */; };
 		CEBAD0F01844BDDD00D66BBB /* icon-share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0EE1844BDDD00D66BBB /* icon-share@2x.png */; };
+		D723A3951A19AFB8000763F4 /* custom-vine-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D723A3931A19AFB8000763F4 /* custom-vine-icon.png */; };
+		D723A3961A19AFB8000763F4 /* custom-vine-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D723A3941A19AFB8000763F4 /* custom-vine-icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		CEBAD0C01844B41100D66BBB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		CEBAD0ED1844BDDD00D66BBB /* icon-share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share.png"; sourceTree = "<group>"; };
 		CEBAD0EE1844BDDD00D66BBB /* icon-share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share@2x.png"; sourceTree = "<group>"; };
+		D723A3931A19AFB8000763F4 /* custom-vine-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom-vine-icon.png"; sourceTree = "<group>"; };
+		D723A3941A19AFB8000763F4 /* custom-vine-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom-vine-icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 		CEBAD0A81844B41100D66BBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D723A3931A19AFB8000763F4 /* custom-vine-icon.png */,
+				D723A3941A19AFB8000763F4 /* custom-vine-icon@2x.png */,
 				CEBAD0ED1844BDDD00D66BBB /* icon-share.png */,
 				CEBAD0EE1844BDDD00D66BBB /* icon-share@2x.png */,
 				CEBAD0A91844B41100D66BBB /* AAShareBubbles-Info.plist */,
@@ -192,7 +198,9 @@
 				CEBAD0C11844B41100D66BBB /* ViewController_iPad.xib in Resources */,
 				CEBAD0EF1844BDDD00D66BBB /* icon-share.png in Resources */,
 				CEBAD0F01844BDDD00D66BBB /* icon-share@2x.png in Resources */,
+				D723A3961A19AFB8000763F4 /* custom-vine-icon@2x.png in Resources */,
 				CE0390A2185B58FA009E4395 /* AAShareBubbles.bundle in Resources */,
+				D723A3951A19AFB8000763F4 /* custom-vine-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
