@@ -62,6 +62,9 @@ typedef enum AAShareBubbleType : int {
 // The fader view alpha, by default is 0.15
 @property(nonatomic, assign) CGFloat faderAlpha;
 
+// The fader view background color, default is black
+@property (nonatomic, strong) UIColor *faderColor;
+
 @property (nonatomic, assign) int facebookBackgroundColorRGB;
 @property (nonatomic, assign) int twitterBackgroundColorRGB;
 @property (nonatomic, assign) int mailBackgroundColorRGB;
