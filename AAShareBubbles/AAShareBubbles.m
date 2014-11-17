@@ -36,6 +36,7 @@
         self.bubbleRadius = 40;
         self.parentView = inView;
         self.faderAlpha = 0.15;
+        self.faderColor = [UIColor blackColor];
         
         self.facebookBackgroundColorRGB = 0x3c5a9a;
         self.twitterBackgroundColorRGB = 0x3083be;
@@ -83,7 +84,7 @@
         
         // Create background
         faderView = [[UIView alloc] initWithFrame:self.parentView.bounds];
-        faderView.backgroundColor = [UIColor blackColor];
+        faderView.backgroundColor = self.faderColor;
         faderView.alpha = 0.0f;
         UITapGestureRecognizer *tapges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareViewBackgroundTapped:)];
         [faderView addGestureRecognizer:tapges];
