@@ -9,6 +9,15 @@
 
 #import "AAShareBubbles.h"
 
+@interface AACustomShareBubble : NSObject
+@property int customId;
+@property (strong, nonatomic) UIImage *icon;
+@property (strong, nonatomic) UIColor *backgroundColor;
+@end
+
+@implementation AACustomShareBubble
+@end
+
 @interface AAShareBubbles()
 @end
 
@@ -52,6 +61,8 @@
         self.instagramBackgroundColorRGB = 0x2e5e89;
         self.favoriteBackgroundColorRGB = 0xedd013;
         self.whatsappBackgroundColorRGB = 0x00B000;
+        
+        self.customButtons = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -60,11 +71,11 @@
 #pragma mark Actions
 
 -(void)buttonWasTapped:(UIButton *)button {
-    AAShareBubbleType buttonType = (AAShareBubbleType) [bubbleIndexTypes[@(button.tag)] intValue];
+    int buttonType = [bubbleIndexTypes[@(button.tag)] intValue];
     [self shareButtonTappedWithType:buttonType];
 }
 
--(void)shareButtonTappedWithType:(AAShareBubbleType)buttonType {
+-(void)shareButtonTappedWithType:(int)buttonType {
     [self hide];
     if([self.delegate respondsToSelector:@selector(aaShareBubbles:tappedBubbleWithType:)]) {
         [self.delegate aaShareBubbles:self tappedBubbleWithType:buttonType];
@@ -116,6 +127,11 @@
         if(self.showInstagramBubble)    [self createButtonWithIcon:@"icon-aa-instagram.png" backgroundColor:self.instagramBackgroundColorRGB andType:AAShareBubbleTypeInstagram];
         if(self.showFavoriteBubble)     [self createButtonWithIcon:@"icon-aa-star.png" backgroundColor:self.favoriteBackgroundColorRGB andType:AAShareBubbleTypeFavorite];
         if(self.showWhatsappBubble)     [self createButtonWithIcon:@"icon-aa-whatsapp.png" backgroundColor:self.whatsappBackgroundColorRGB andType:AAShareBubbleTypeWhatsapp];
+        
+        for (AACustomShareBubble *customBubble in self.customButtons)
+        {
+            [self createButtonWithIcon:customBubble.icon backgroundColor:customBubble.backgroundColor andButtonId:customBubble.customId];
+        }
         
         if(bubbles.count == 0) return;
         
@@ -229,7 +245,7 @@
     }];
 }
 
--(void)createButtonWithIcon:(NSString *)iconName backgroundColor:(int)rgb andType:(AAShareBubbleType)type
+-(void)createButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(int)buttonId
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self action:@selector(buttonWasTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -237,26 +253,44 @@
     
     // Circle background
     UIView *circle = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2 * self.bubbleRadius, 2 * self.bubbleRadius)];
-    circle.backgroundColor = [self colorFromRGB:rgb];
+    circle.backgroundColor = color;
     circle.layer.cornerRadius = self.bubbleRadius;
     circle.layer.masksToBounds = YES;
     circle.opaque = NO;
     circle.alpha = 0.97;
     
     // Circle icon
-    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"AAShareBubbles.bundle/%@", iconName]]];
-    CGRect f = icon.frame;
+    UIImageView *iconView = [[UIImageView alloc] initWithImage:icon];
+    CGRect f = iconView.frame;
     f.origin.x = (CGFloat) ((circle.frame.size.width - f.size.width) * 0.5);
     f.origin.y = (CGFloat) ((circle.frame.size.height - f.size.height) * 0.5);
-    icon.frame = f;
-    [circle addSubview:icon];
+    iconView.frame = f;
+    [circle addSubview:iconView];
     
     [button setBackgroundImage:[self imageWithView:circle] forState:UIControlStateNormal];
     
     [bubbles addObject:button];
-    bubbleIndexTypes[@(bubbles.count - 1)] = @(type);
+    bubbleIndexTypes[@(bubbles.count - 1)] = @(buttonId);
     
     [self addSubview:button];
+}
+
+-(void)createButtonWithIcon:(NSString *)iconName backgroundColor:(int)rgb andType:(AAShareBubbleType)type
+{
+    UIImage *icon = [UIImage imageNamed:[NSString stringWithFormat:@"AAShareBubbles.bundle/%@", iconName]];
+    UIColor *color = [self colorFromRGB:rgb];
+    [self createButtonWithIcon:icon backgroundColor:color andButtonId:type];
+}
+
+-(void)addCustomButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(int)buttonId
+{
+    NSAssert(buttonId >= 100, @"Custom Button Ids must be >= 100");
+    
+    AACustomShareBubble *customButton = [[AACustomShareBubble alloc] init];
+    customButton.backgroundColor = color;
+    customButton.icon = icon;
+    customButton.customId = buttonId;
+    [self.customButtons addObject:customButton];
 }
 
 -(UIColor *)colorFromRGB:(int)rgb {

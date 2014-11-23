@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#define CUSTOM_BUTTON_ID 100
 
 @interface ViewController ()
 
@@ -50,6 +51,11 @@
     shareBubbles.showPinterestBubble = YES;
     shareBubbles.showInstagramBubble = YES;
     shareBubbles.showWhatsappBubble = YES;
+    
+    [shareBubbles addCustomButtonWithIcon:[UIImage imageNamed:@"custom-vine-icon"]
+                          backgroundColor:[UIColor colorWithRed:0.0 green:164.0/255.0 blue:120.0/255.0 alpha:1.0]
+                              andButtonId:CUSTOM_BUTTON_ID];
+    
     [shareBubbles show];
 }
 
@@ -66,7 +72,7 @@
 #pragma mark -
 #pragma mark AAShareBubbles
 
--(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType
+-(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(int)bubbleType
 {
     switch (bubbleType) {
         case AAShareBubbleTypeFacebook:
@@ -95,6 +101,9 @@
             break;
         case AAShareBubbleTypeReddit:
             NSLog(@"Reddit");
+            break;
+        case CUSTOM_BUTTON_ID:
+            NSLog(@"Custom Button With Type %d", bubbleType);
             break;
         default:
             break;

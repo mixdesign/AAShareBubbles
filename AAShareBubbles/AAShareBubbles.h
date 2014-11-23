@@ -47,6 +47,7 @@ typedef enum AAShareBubbleType : int {
 @property (nonatomic, assign) BOOL showInstagramBubble;
 @property (nonatomic, assign) BOOL showFavoriteBubble;
 @property (nonatomic, assign) BOOL showWhatsappBubble;
+@property (nonatomic, strong) NSMutableArray *customButtons;
 
 // The radius from center point to each share button
 @property (nonatomic, assign) int radius;
@@ -88,6 +89,8 @@ typedef enum AAShareBubbleType : int {
 -(void)show;
 -(void)hide;
 
+-(void)addCustomButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(int)buttonId;
+
 @end
 
 @protocol AAShareBubblesDelegate<NSObject>
@@ -95,7 +98,7 @@ typedef enum AAShareBubbleType : int {
 @optional
 
 // On buttons pressed
--(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType;
+-(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(int)bubbleType;
 
 // On bubbles hide
 -(void)aaShareBubblesDidHide:(AAShareBubbles *)shareBubbles;

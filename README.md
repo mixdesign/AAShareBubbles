@@ -4,6 +4,8 @@ Intro
 Animated Social share buttons control.<br>
 Supported buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>, <b>Tumblr</b>, <b>Vkontakte (vk.com)</b>, <b>LinkedIn</b>, <b>Pinterest</b>, <b>Youtube</b>, <b>Vimeo</b>, <b>Reddit</b>, <b>Instagram</b>, <b>Whatsapp</b>, <b>E-mail</b>, <b>Add to favorites</b>
 
+Also supports custom buttons.
+
 **Demo video:**<br>
 http://www.youtube.com/watch?v=0yvl4_db1F4
 
@@ -36,6 +38,13 @@ shareBubbles.showMailBubble = YES;
 shareBubbles.showGooglePlusBubble = YES;
 shareBubbles.showTumblrBubble = YES;
 shareBubbles.showVkBubble = YES;
+
+// add custom buttons -- buttonId for custom buttons MUST be greater than or equal to 100
+[shareBubbles addCustomButtonWithIcon:[UIImage imageNamed:@"custom-icon"]
+                      backgroundColor:[UIColor greenColor]
+                          andButtonId:100];
+
+
 [shareBubbles show];
 
 // Use another initialization method to create share buttons on UIWindow instance (at the center)
@@ -65,6 +74,10 @@ AAShareBubbles *shareBubbles = [[AAShareBubbles alloc] initCenteredInWindowWithR
         case AAShareBubbleTypeVk:
             NSLog(@"Vkontakte (vk.com)");
             break;
+        case 100:
+            // custom buttons have type >= 100
+            NSLog(@"Custom Button With Type 100");
+            break;
         default:
             break;
     }
@@ -84,5 +97,4 @@ Requirements:
 Todo:
 -------
 - Add more social buttons.
-- Show custom bubble icons programmatically.
 - Add opportunity to show bubbles in specified order.
