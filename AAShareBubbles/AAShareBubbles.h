@@ -90,11 +90,11 @@ typedef enum AAShareBubbleType : int {
 @property (nonatomic, assign) int instagramBackgroundColorRGB;
 @property (nonatomic, assign) int favoriteBackgroundColorRGB;
 @property (nonatomic, assign) int whatsappBackgroundColorRGB;
-@property (nonatomic, assign) int SinaWeiboBackgroundColorRGB;
-@property (nonatomic, assign) int QQBackgroundColorRGB;
-@property (nonatomic, assign) int QzoneBackgroundColorRGB;
-@property (nonatomic, assign) int WechatBackgroundColorRGB;
-@property (nonatomic, assign) int MessageBackgroundColorRGB;
+@property (nonatomic, assign) int sinaWeiboBackgroundColorRGB;
+@property (nonatomic, assign) int qqBackgroundColorRGB;
+@property (nonatomic, assign) int qzoneBackgroundColorRGB;
+@property (nonatomic, assign) int wechatBackgroundColorRGB;
+@property (nonatomic, assign) int messageBackgroundColorRGB;
 
 -(id)initWithPoint:(CGPoint)point radius:(int)radiusValue inView:(UIView *)inView;
 

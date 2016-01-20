@@ -61,11 +61,11 @@
         self.instagramBackgroundColorRGB = 0x2e5e89;
         self.favoriteBackgroundColorRGB = 0xedd013;
         self.whatsappBackgroundColorRGB = 0x00B000;
-        self.QQBackgroundColorRGB = 0x1A87DA;
-        self.QzoneBackgroundColorRGB = 0xFFCE04;
-        self.SinaWeiboBackgroundColorRGB = 0xE6162D;
-        self.WechatBackgroundColorRGB = 0x04CE11;
-        self.MessageBackgroundColorRGB = 0x55D56A;
+        self.qqBackgroundColorRGB = 0x1A87DA;
+        self.qzoneBackgroundColorRGB = 0xFFCE04;
+        self.sinaWeiboBackgroundColorRGB = 0xE6162D;
+        self.wechatBackgroundColorRGB = 0x04CE11;
+        self.messageBackgroundColorRGB = 0x55D56A;
         
         self.customButtons = [[NSMutableArray alloc] init];
     }
