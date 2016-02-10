@@ -19,7 +19,7 @@ Installation
 
 Two ways:<br>
 1. Just drag n drop **AAShareBubbles** folder into your xcode project.<br>
-2. **Cocoapods:**
+2. **CocoaPods:**
 ```ruby
 pod 'AAShareBubbles'
 ```
