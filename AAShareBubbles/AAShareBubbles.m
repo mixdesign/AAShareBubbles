@@ -10,7 +10,7 @@
 #import "AAShareBubbles.h"
 
 @interface AACustomShareBubble : NSObject
-@property int customId;
+@property NSInteger customId;
 @property (strong, nonatomic) UIImage *icon;
 @property (strong, nonatomic) UIColor *backgroundColor;
 @end
@@ -25,19 +25,19 @@
 {
     NSMutableArray *bubbles;
     NSMutableDictionary *bubbleIndexTypes;
-
+    
     UIView *faderView;
 }
 
 @synthesize delegate = _delegate, parentView;
 
-- (id)initCenteredInWindowWithRadius:(int)radiusValue
+- (instancetype)initCenteredInWindowWithRadius:(NSInteger)radiusValue
 {
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
     return [self initWithPoint:CGPointMake((CGFloat) (window.frame.size.width * 0.5), (CGFloat) (window.frame.size.height * 0.5)) radius:radiusValue inView:window];
 }
 
-- (id)initWithPoint:(CGPoint)point radius:(int)radiusValue inView:(UIView *)inView
+- (instancetype)initWithPoint:(CGPoint)point radius:(NSInteger)radiusValue inView:(UIView *)inView
 {
     self = [super initWithFrame:CGRectMake(point.x - radiusValue, point.y - radiusValue, 2 * radiusValue, 2 * radiusValue)];
     if (self) {
@@ -78,11 +78,11 @@
 #pragma mark Actions
 
 -(void)buttonWasTapped:(UIButton *)button {
-    int buttonType = [bubbleIndexTypes[@(button.tag)] intValue];
+    NSInteger buttonType = [bubbleIndexTypes[@(button.tag)] integerValue];
     [self shareButtonTappedWithType:buttonType];
 }
 
--(void)shareButtonTappedWithType:(int)buttonType {
+-(void)shareButtonTappedWithType:(NSInteger)buttonType {
     [self hide];
     if([self.delegate respondsToSelector:@selector(aaShareBubbles:tappedBubbleWithType:)]) {
         [self.delegate aaShareBubbles:self tappedBubbleWithType:buttonType];
@@ -111,7 +111,7 @@
         }
         
         [parentView insertSubview:faderView belowSubview:self];
-
+        
         [UIView animateWithDuration:0.25 animations:^{
             faderView.alpha = self.faderAlpha;
         }];
@@ -159,7 +159,7 @@
         
         NSMutableArray *coordinates = [NSMutableArray array];
         
-        for (int i = 0; i < bubbles.count; ++i)
+        for (NSUInteger i = 0; i < bubbles.count; ++i)
         {
             UIButton *bubble = bubbles[i];
             bubble.tag = i;
@@ -167,14 +167,14 @@
             float angle = startAngel + i * bubblesBetweenAngel;
             float x = (float) (cos(angle * M_PI / 180) * bubbleDistanceFromPivot + self.radius);
             float y = (float) (sin(angle * M_PI / 180) * bubbleDistanceFromPivot + self.radius);
-
+            
             [coordinates addObject:@{@"x" : @(x), @"y" : @(y)}];
             
             bubble.transform = CGAffineTransformMakeScale(0.001, 0.001);
             bubble.center = CGPointMake(self.radius, self.radius);
         }
         
-        int inetratorI = 0;
+        NSInteger inetratorI = 0;
         for (NSDictionary *coordinate in coordinates)
         {
             UIButton *bubble = bubbles[inetratorI];
@@ -189,7 +189,7 @@
     if(!self.isAnimating)
     {
         self.isAnimating = YES;
-        int inetratorI = 0;
+        NSInteger inetratorI = 0;
         for (UIButton *bubble in bubbles)
         {
             CGFloat delayTime = (CGFloat) (inetratorI * 0.1);
@@ -245,7 +245,7 @@
             if(bubble.tag == bubbles.count - 1) {
                 self.isAnimating = NO;
                 self.hidden = YES;
-
+                
                 [UIView animateWithDuration:0.25 animations:^{
                     faderView.alpha = 0;
                 } completion:^(BOOL finished) {
@@ -261,7 +261,7 @@
     }];
 }
 
--(void)createButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(int)buttonId
+-(void)createButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(NSInteger)buttonId
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self action:@selector(buttonWasTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -291,14 +291,14 @@
     [self addSubview:button];
 }
 
--(void)createButtonWithIcon:(NSString *)iconName backgroundColor:(int)rgb andType:(AAShareBubbleType)type
+-(void)createButtonWithIcon:(NSString *)iconName backgroundColor:(NSInteger)rgb andType:(AAShareBubbleType)type
 {
     UIImage *icon = [UIImage imageNamed:[NSString stringWithFormat:@"AAShareBubbles.bundle/%@", iconName]];
     UIColor *color = [self colorFromRGB:rgb];
     [self createButtonWithIcon:icon backgroundColor:color andButtonId:type];
 }
 
--(void)addCustomButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(int)buttonId
+-(void)addCustomButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(NSInteger)buttonId
 {
     NSAssert(buttonId >= 100, @"Custom Button Ids must be >= 100");
     
@@ -309,7 +309,7 @@
     [self.customButtons addObject:customButton];
 }
 
--(UIColor *)colorFromRGB:(int)rgb {
+-(UIColor *)colorFromRGB:(NSInteger)rgb {
     return [UIColor colorWithRed:((float)((rgb & 0xFF0000) >> 16))/255.0 green:((float)((rgb & 0xFF00) >> 8))/255.0 blue:((float)(rgb & 0xFF))/255.0 alpha:1.0];
 }
 
