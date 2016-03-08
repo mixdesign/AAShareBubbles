@@ -138,11 +138,11 @@
         if(self.showInstagramBubble)    [self createButtonWithIcon:@"icon-aa-instagram.png" backgroundColor:self.instagramBackgroundColorRGB andType:AAShareBubbleTypeInstagram];
         if(self.showFavoriteBubble)     [self createButtonWithIcon:@"icon-aa-star.png" backgroundColor:self.favoriteBackgroundColorRGB andType:AAShareBubbleTypeFavorite];
         if(self.showWhatsappBubble)     [self createButtonWithIcon:@"icon-aa-whatsapp.png" backgroundColor:self.whatsappBackgroundColorRGB andType:AAShareBubbleTypeWhatsapp];
-        if(self.showMessageBubble)     [self createButtonWithIcon:@"icon-aa-message.png" backgroundColor:self.MessageBackgroundColorRGB andType:AAShareBubbleTypeMessage];
-        if(self.showQQBubble)     [self createButtonWithIcon:@"icon-aa-qq.png" backgroundColor:self.QQBackgroundColorRGB andType:AAShareBubbleTypeQQ];
-        if(self.showQzoneBubble)     [self createButtonWithIcon:@"icon-aa-qzone.png" backgroundColor:self.QzoneBackgroundColorRGB andType:AAShareBubbleTypeQzone];
-        if(self.showSinaWeiboBubble)     [self createButtonWithIcon:@"icon-aa-sinaweibo.png" backgroundColor:self.SinaWeiboBackgroundColorRGB andType:AAShareBubbleTypeSinaWeibo];
-        if(self.showWechatBubble)     [self createButtonWithIcon:@"icon-aa-wechat.png" backgroundColor:self.WechatBackgroundColorRGB andType:AAShareBubbleTypeWechat];
+        if(self.showMessageBubble)      [self createButtonWithIcon:@"icon-aa-message.png" backgroundColor:self.messageBackgroundColorRGB andType:AAShareBubbleTypeMessage];
+        if(self.showQQBubble)           [self createButtonWithIcon:@"icon-aa-qq.png" backgroundColor:self.qqBackgroundColorRGB andType:AAShareBubbleTypeQQ];
+        if(self.showQzoneBubble)        [self createButtonWithIcon:@"icon-aa-qzone.png" backgroundColor:self.qzoneBackgroundColorRGB andType:AAShareBubbleTypeQzone];
+        if(self.showSinaWeiboBubble)    [self createButtonWithIcon:@"icon-aa-sinaweibo.png" backgroundColor:self.sinaWeiboBackgroundColorRGB andType:AAShareBubbleTypeSinaWeibo];
+        if(self.showWechatBubble)       [self createButtonWithIcon:@"icon-aa-wechat.png" backgroundColor:self.wechatBackgroundColorRGB andType:AAShareBubbleTypeWechat];
         
         for (AACustomShareBubble *customBubble in self.customButtons)
         {
