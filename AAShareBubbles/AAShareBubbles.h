@@ -68,6 +68,9 @@ typedef enum AAShareBubbleType : int {
 // Define if bubbles are currently animating (showing or hiding)
 @property (nonatomic, assign) BOOL isAnimating;
 
+// Define if view will dismiss when user taps on background (Default: YES)
+@property (nonatomic, assign) BOOL dismissOnBackgroundTap;
+
 @property (nonatomic, weak) UIView *parentView;
 
 // The fader view alpha, by default is 0.15

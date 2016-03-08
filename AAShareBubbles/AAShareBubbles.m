@@ -68,6 +68,8 @@
         self.messageBackgroundColorRGB = 0x55D56A;
         
         self.customButtons = [[NSMutableArray alloc] init];
+        
+        self.dismissOnBackgroundTap = YES;
     }
     return self;
 }
@@ -102,8 +104,12 @@
         faderView = [[UIView alloc] initWithFrame:self.parentView.bounds];
         faderView.backgroundColor = self.faderColor;
         faderView.alpha = 0.0f;
-        UITapGestureRecognizer *tapges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareViewBackgroundTapped:)];
-        [faderView addGestureRecognizer:tapges];
+        
+        if (self.dismissOnBackgroundTap) {
+            UITapGestureRecognizer *tapges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareViewBackgroundTapped:)];
+            [faderView addGestureRecognizer:tapges];
+        }
+        
         [parentView insertSubview:faderView belowSubview:self];
 
         [UIView animateWithDuration:0.25 animations:^{
