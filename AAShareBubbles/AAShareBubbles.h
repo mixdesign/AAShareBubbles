@@ -11,7 +11,7 @@
 
 @protocol AAShareBubblesDelegate;
 
-typedef enum AAShareBubbleType : int {
+typedef NS_ENUM(NSUInteger, AAShareBubbleType) {
     AAShareBubbleTypeFacebook = 0,
     AAShareBubbleTypeTwitter = 1,
     AAShareBubbleTypeGooglePlus = 2,
@@ -31,8 +31,7 @@ typedef enum AAShareBubbleType : int {
     AAShareBubbleTypeQzone = 16,
     AAShareBubbleTypeSinaWeibo = 17,
     AAShareBubbleTypeWechat = 18
-    
-} AAShareBubbleType;
+};
 
 @interface AAShareBubbles : UIView
 
