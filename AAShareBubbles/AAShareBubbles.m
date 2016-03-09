@@ -124,25 +124,25 @@
         bubbles = [[NSMutableArray alloc] init];
         bubbleIndexTypes = [[NSMutableDictionary alloc] init];
         
-        if(self.showFacebookBubble)     [self createButtonWithIcon:@"icon-aa-facebook.png" backgroundColor:self.facebookBackgroundColorRGB andType:AAShareBubbleTypeFacebook];
-        if(self.showTwitterBubble)      [self createButtonWithIcon:@"icon-aa-twitter.png" backgroundColor:self.twitterBackgroundColorRGB andType:AAShareBubbleTypeTwitter];
-        if(self.showGooglePlusBubble)   [self createButtonWithIcon:@"icon-aa-googleplus.png" backgroundColor:self.googlePlusBackgroundColorRGB andType:AAShareBubbleTypeGooglePlus];
-        if(self.showTumblrBubble)       [self createButtonWithIcon:@"icon-aa-tumblr.png" backgroundColor:self.tumblrBackgroundColorRGB andType:AAShareBubbleTypeTumblr];
-        if(self.showMailBubble)         [self createButtonWithIcon:@"icon-aa-at.png" backgroundColor:self.mailBackgroundColorRGB andType:AAShareBubbleTypeMail];
-        if(self.showVkBubble)           [self createButtonWithIcon:@"icon-aa-vk.png" backgroundColor:self.vkBackgroundColorRGB andType:AAShareBubbleTypeVk];
-        if(self.showLinkedInBubble)     [self createButtonWithIcon:@"icon-aa-linkedin.png" backgroundColor:self.linkedInBackgroundColorRGB andType:AAShareBubbleTypeLinkedIn];
-        if(self.showPinterestBubble)    [self createButtonWithIcon:@"icon-aa-pinterest.png" backgroundColor:self.pinterestBackgroundColorRGB andType:AAShareBubbleTypePinterest];
-        if(self.showYoutubeBubble)      [self createButtonWithIcon:@"icon-aa-youtube.png" backgroundColor:self.youtubeBackgroundColorRGB andType:AAShareBubbleTypeYoutube];
-        if(self.showVimeoBubble)        [self createButtonWithIcon:@"icon-aa-vimeo.png" backgroundColor:self.vimeoBackgroundColorRGB andType:AAShareBubbleTypeVimeo];
-        if(self.showRedditBubble)       [self createButtonWithIcon:@"icon-aa-reddit.png" backgroundColor:self.redditBackgroundColorRGB andType:AAShareBubbleTypeReddit];
-        if(self.showInstagramBubble)    [self createButtonWithIcon:@"icon-aa-instagram.png" backgroundColor:self.instagramBackgroundColorRGB andType:AAShareBubbleTypeInstagram];
-        if(self.showFavoriteBubble)     [self createButtonWithIcon:@"icon-aa-star.png" backgroundColor:self.favoriteBackgroundColorRGB andType:AAShareBubbleTypeFavorite];
-        if(self.showWhatsappBubble)     [self createButtonWithIcon:@"icon-aa-whatsapp.png" backgroundColor:self.whatsappBackgroundColorRGB andType:AAShareBubbleTypeWhatsapp];
-        if(self.showMessageBubble)      [self createButtonWithIcon:@"icon-aa-message.png" backgroundColor:self.messageBackgroundColorRGB andType:AAShareBubbleTypeMessage];
-        if(self.showQQBubble)           [self createButtonWithIcon:@"icon-aa-qq.png" backgroundColor:self.qqBackgroundColorRGB andType:AAShareBubbleTypeQQ];
-        if(self.showQzoneBubble)        [self createButtonWithIcon:@"icon-aa-qzone.png" backgroundColor:self.qzoneBackgroundColorRGB andType:AAShareBubbleTypeQzone];
-        if(self.showSinaWeiboBubble)    [self createButtonWithIcon:@"icon-aa-sinaweibo.png" backgroundColor:self.sinaWeiboBackgroundColorRGB andType:AAShareBubbleTypeSinaWeibo];
-        if(self.showWechatBubble)       [self createButtonWithIcon:@"icon-aa-wechat.png" backgroundColor:self.wechatBackgroundColorRGB andType:AAShareBubbleTypeWechat];
+        if(self.showFacebookBubble)     [self createButtonWithIcon:@"icon-aa-facebook" backgroundColor:self.facebookBackgroundColorRGB andType:AAShareBubbleTypeFacebook];
+        if(self.showTwitterBubble)      [self createButtonWithIcon:@"icon-aa-twitter" backgroundColor:self.twitterBackgroundColorRGB andType:AAShareBubbleTypeTwitter];
+        if(self.showGooglePlusBubble)   [self createButtonWithIcon:@"icon-aa-googleplus" backgroundColor:self.googlePlusBackgroundColorRGB andType:AAShareBubbleTypeGooglePlus];
+        if(self.showTumblrBubble)       [self createButtonWithIcon:@"icon-aa-tumblr" backgroundColor:self.tumblrBackgroundColorRGB andType:AAShareBubbleTypeTumblr];
+        if(self.showMailBubble)         [self createButtonWithIcon:@"icon-aa-at" backgroundColor:self.mailBackgroundColorRGB andType:AAShareBubbleTypeMail];
+        if(self.showVkBubble)           [self createButtonWithIcon:@"icon-aa-vk" backgroundColor:self.vkBackgroundColorRGB andType:AAShareBubbleTypeVk];
+        if(self.showLinkedInBubble)     [self createButtonWithIcon:@"icon-aa-linkedin" backgroundColor:self.linkedInBackgroundColorRGB andType:AAShareBubbleTypeLinkedIn];
+        if(self.showPinterestBubble)    [self createButtonWithIcon:@"icon-aa-pinterest" backgroundColor:self.pinterestBackgroundColorRGB andType:AAShareBubbleTypePinterest];
+        if(self.showYoutubeBubble)      [self createButtonWithIcon:@"icon-aa-youtube" backgroundColor:self.youtubeBackgroundColorRGB andType:AAShareBubbleTypeYoutube];
+        if(self.showVimeoBubble)        [self createButtonWithIcon:@"icon-aa-vimeo" backgroundColor:self.vimeoBackgroundColorRGB andType:AAShareBubbleTypeVimeo];
+        if(self.showRedditBubble)       [self createButtonWithIcon:@"icon-aa-reddit" backgroundColor:self.redditBackgroundColorRGB andType:AAShareBubbleTypeReddit];
+        if(self.showInstagramBubble)    [self createButtonWithIcon:@"icon-aa-instagram" backgroundColor:self.instagramBackgroundColorRGB andType:AAShareBubbleTypeInstagram];
+        if(self.showFavoriteBubble)     [self createButtonWithIcon:@"icon-aa-star" backgroundColor:self.favoriteBackgroundColorRGB andType:AAShareBubbleTypeFavorite];
+        if(self.showWhatsappBubble)     [self createButtonWithIcon:@"icon-aa-whatsapp" backgroundColor:self.whatsappBackgroundColorRGB andType:AAShareBubbleTypeWhatsapp];
+        if(self.showMessageBubble)      [self createButtonWithIcon:@"icon-aa-message" backgroundColor:self.messageBackgroundColorRGB andType:AAShareBubbleTypeMessage];
+        if(self.showQQBubble)           [self createButtonWithIcon:@"icon-aa-qq" backgroundColor:self.qqBackgroundColorRGB andType:AAShareBubbleTypeQQ];
+        if(self.showQzoneBubble)        [self createButtonWithIcon:@"icon-aa-qzone" backgroundColor:self.qzoneBackgroundColorRGB andType:AAShareBubbleTypeQzone];
+        if(self.showSinaWeiboBubble)    [self createButtonWithIcon:@"icon-aa-sinaweibo" backgroundColor:self.sinaWeiboBackgroundColorRGB andType:AAShareBubbleTypeSinaWeibo];
+        if(self.showWechatBubble)       [self createButtonWithIcon:@"icon-aa-wechat" backgroundColor:self.wechatBackgroundColorRGB andType:AAShareBubbleTypeWechat];
         
         for (AACustomShareBubble *customBubble in self.customButtons)
         {
@@ -293,7 +293,9 @@
 
 -(void)createButtonWithIcon:(NSString *)iconName backgroundColor:(NSInteger)rgb andType:(AAShareBubbleType)type
 {
-    UIImage *icon = [UIImage imageNamed:[NSString stringWithFormat:@"AAShareBubbles.bundle/%@", iconName]];
+    NSBundle *classBundle = [NSBundle bundleForClass:[self class]];
+    NSBundle *resourcesBundle = [NSBundle bundleWithPath:[NSString stringWithFormat:@"%@/AAShareBubbles.bundle", classBundle.bundlePath]];
+    UIImage *icon = [UIImage imageNamed:iconName inBundle:resourcesBundle compatibleWithTraitCollection:nil];
     UIColor *color = [self colorFromRGB:rgb];
     [self createButtonWithIcon:icon backgroundColor:color andButtonId:type];
 }
