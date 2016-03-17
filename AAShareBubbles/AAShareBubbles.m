@@ -10,7 +10,7 @@
 #import "AAShareBubbles.h"
 
 @interface AACustomShareBubble : NSObject
-@property int customId;
+@property NSInteger customId;
 @property (strong, nonatomic) UIImage *icon;
 @property (strong, nonatomic) UIColor *backgroundColor;
 @end
@@ -25,19 +25,19 @@
 {
     NSMutableArray *bubbles;
     NSMutableDictionary *bubbleIndexTypes;
-
+    
     UIView *faderView;
 }
 
 @synthesize delegate = _delegate, parentView;
 
-- (id)initCenteredInWindowWithRadius:(int)radiusValue
+- (instancetype)initCenteredInWindowWithRadius:(NSInteger)radiusValue
 {
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
     return [self initWithPoint:CGPointMake((CGFloat) (window.frame.size.width * 0.5), (CGFloat) (window.frame.size.height * 0.5)) radius:radiusValue inView:window];
 }
 
-- (id)initWithPoint:(CGPoint)point radius:(int)radiusValue inView:(UIView *)inView
+- (instancetype)initWithPoint:(CGPoint)point radius:(NSInteger)radiusValue inView:(UIView *)inView
 {
     self = [super initWithFrame:CGRectMake(point.x - radiusValue, point.y - radiusValue, 2 * radiusValue, 2 * radiusValue)];
     if (self) {
@@ -68,6 +68,8 @@
         self.messageBackgroundColorRGB = 0x55D56A;
         
         self.customButtons = [[NSMutableArray alloc] init];
+        
+        self.dismissOnBackgroundTap = YES;
     }
     return self;
 }
@@ -76,11 +78,11 @@
 #pragma mark Actions
 
 -(void)buttonWasTapped:(UIButton *)button {
-    int buttonType = [bubbleIndexTypes[@(button.tag)] intValue];
+    NSInteger buttonType = [bubbleIndexTypes[@(button.tag)] integerValue];
     [self shareButtonTappedWithType:buttonType];
 }
 
--(void)shareButtonTappedWithType:(int)buttonType {
+-(void)shareButtonTappedWithType:(NSInteger)buttonType {
     [self hide];
     if([self.delegate respondsToSelector:@selector(aaShareBubbles:tappedBubbleWithType:)]) {
         [self.delegate aaShareBubbles:self tappedBubbleWithType:buttonType];
@@ -102,10 +104,14 @@
         faderView = [[UIView alloc] initWithFrame:self.parentView.bounds];
         faderView.backgroundColor = self.faderColor;
         faderView.alpha = 0.0f;
-        UITapGestureRecognizer *tapges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareViewBackgroundTapped:)];
-        [faderView addGestureRecognizer:tapges];
+        
+        if (self.dismissOnBackgroundTap) {
+            UITapGestureRecognizer *tapges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareViewBackgroundTapped:)];
+            [faderView addGestureRecognizer:tapges];
+        }
+        
         [parentView insertSubview:faderView belowSubview:self];
-
+        
         [UIView animateWithDuration:0.25 animations:^{
             faderView.alpha = self.faderAlpha;
         }];
@@ -118,25 +124,25 @@
         bubbles = [[NSMutableArray alloc] init];
         bubbleIndexTypes = [[NSMutableDictionary alloc] init];
         
-        if(self.showFacebookBubble)     [self createButtonWithIcon:@"icon-aa-facebook.png" backgroundColor:self.facebookBackgroundColorRGB andType:AAShareBubbleTypeFacebook];
-        if(self.showTwitterBubble)      [self createButtonWithIcon:@"icon-aa-twitter.png" backgroundColor:self.twitterBackgroundColorRGB andType:AAShareBubbleTypeTwitter];
-        if(self.showGooglePlusBubble)   [self createButtonWithIcon:@"icon-aa-googleplus.png" backgroundColor:self.googlePlusBackgroundColorRGB andType:AAShareBubbleTypeGooglePlus];
-        if(self.showTumblrBubble)       [self createButtonWithIcon:@"icon-aa-tumblr.png" backgroundColor:self.tumblrBackgroundColorRGB andType:AAShareBubbleTypeTumblr];
-        if(self.showMailBubble)         [self createButtonWithIcon:@"icon-aa-at.png" backgroundColor:self.mailBackgroundColorRGB andType:AAShareBubbleTypeMail];
-        if(self.showVkBubble)           [self createButtonWithIcon:@"icon-aa-vk.png" backgroundColor:self.vkBackgroundColorRGB andType:AAShareBubbleTypeVk];
-        if(self.showLinkedInBubble)     [self createButtonWithIcon:@"icon-aa-linkedin.png" backgroundColor:self.linkedInBackgroundColorRGB andType:AAShareBubbleTypeLinkedIn];
-        if(self.showPinterestBubble)    [self createButtonWithIcon:@"icon-aa-pinterest.png" backgroundColor:self.pinterestBackgroundColorRGB andType:AAShareBubbleTypePinterest];
-        if(self.showYoutubeBubble)      [self createButtonWithIcon:@"icon-aa-youtube.png" backgroundColor:self.youtubeBackgroundColorRGB andType:AAShareBubbleTypeYoutube];
-        if(self.showVimeoBubble)        [self createButtonWithIcon:@"icon-aa-vimeo.png" backgroundColor:self.vimeoBackgroundColorRGB andType:AAShareBubbleTypeVimeo];
-        if(self.showRedditBubble)       [self createButtonWithIcon:@"icon-aa-reddit.png" backgroundColor:self.redditBackgroundColorRGB andType:AAShareBubbleTypeReddit];
-        if(self.showInstagramBubble)    [self createButtonWithIcon:@"icon-aa-instagram.png" backgroundColor:self.instagramBackgroundColorRGB andType:AAShareBubbleTypeInstagram];
-        if(self.showFavoriteBubble)     [self createButtonWithIcon:@"icon-aa-star.png" backgroundColor:self.favoriteBackgroundColorRGB andType:AAShareBubbleTypeFavorite];
-        if(self.showWhatsappBubble)     [self createButtonWithIcon:@"icon-aa-whatsapp.png" backgroundColor:self.whatsappBackgroundColorRGB andType:AAShareBubbleTypeWhatsapp];
-        if(self.showMessageBubble)     [self createButtonWithIcon:@"icon-aa-message.png" backgroundColor:self.MessageBackgroundColorRGB andType:AAShareBubbleTypeMessage];
-        if(self.showQQBubble)     [self createButtonWithIcon:@"icon-aa-qq.png" backgroundColor:self.QQBackgroundColorRGB andType:AAShareBubbleTypeQQ];
-        if(self.showQzoneBubble)     [self createButtonWithIcon:@"icon-aa-qzone.png" backgroundColor:self.QzoneBackgroundColorRGB andType:AAShareBubbleTypeQzone];
-        if(self.showSinaWeiboBubble)     [self createButtonWithIcon:@"icon-aa-sinaweibo.png" backgroundColor:self.SinaWeiboBackgroundColorRGB andType:AAShareBubbleTypeSinaWeibo];
-        if(self.showWechatBubble)     [self createButtonWithIcon:@"icon-aa-wechat.png" backgroundColor:self.WechatBackgroundColorRGB andType:AAShareBubbleTypeWechat];
+        if(self.showFacebookBubble)     [self createButtonWithIcon:@"icon-aa-facebook" backgroundColor:self.facebookBackgroundColorRGB andType:AAShareBubbleTypeFacebook];
+        if(self.showTwitterBubble)      [self createButtonWithIcon:@"icon-aa-twitter" backgroundColor:self.twitterBackgroundColorRGB andType:AAShareBubbleTypeTwitter];
+        if(self.showGooglePlusBubble)   [self createButtonWithIcon:@"icon-aa-googleplus" backgroundColor:self.googlePlusBackgroundColorRGB andType:AAShareBubbleTypeGooglePlus];
+        if(self.showTumblrBubble)       [self createButtonWithIcon:@"icon-aa-tumblr" backgroundColor:self.tumblrBackgroundColorRGB andType:AAShareBubbleTypeTumblr];
+        if(self.showMailBubble)         [self createButtonWithIcon:@"icon-aa-at" backgroundColor:self.mailBackgroundColorRGB andType:AAShareBubbleTypeMail];
+        if(self.showVkBubble)           [self createButtonWithIcon:@"icon-aa-vk" backgroundColor:self.vkBackgroundColorRGB andType:AAShareBubbleTypeVk];
+        if(self.showLinkedInBubble)     [self createButtonWithIcon:@"icon-aa-linkedin" backgroundColor:self.linkedInBackgroundColorRGB andType:AAShareBubbleTypeLinkedIn];
+        if(self.showPinterestBubble)    [self createButtonWithIcon:@"icon-aa-pinterest" backgroundColor:self.pinterestBackgroundColorRGB andType:AAShareBubbleTypePinterest];
+        if(self.showYoutubeBubble)      [self createButtonWithIcon:@"icon-aa-youtube" backgroundColor:self.youtubeBackgroundColorRGB andType:AAShareBubbleTypeYoutube];
+        if(self.showVimeoBubble)        [self createButtonWithIcon:@"icon-aa-vimeo" backgroundColor:self.vimeoBackgroundColorRGB andType:AAShareBubbleTypeVimeo];
+        if(self.showRedditBubble)       [self createButtonWithIcon:@"icon-aa-reddit" backgroundColor:self.redditBackgroundColorRGB andType:AAShareBubbleTypeReddit];
+        if(self.showInstagramBubble)    [self createButtonWithIcon:@"icon-aa-instagram" backgroundColor:self.instagramBackgroundColorRGB andType:AAShareBubbleTypeInstagram];
+        if(self.showFavoriteBubble)     [self createButtonWithIcon:@"icon-aa-star" backgroundColor:self.favoriteBackgroundColorRGB andType:AAShareBubbleTypeFavorite];
+        if(self.showWhatsappBubble)     [self createButtonWithIcon:@"icon-aa-whatsapp" backgroundColor:self.whatsappBackgroundColorRGB andType:AAShareBubbleTypeWhatsapp];
+        if(self.showMessageBubble)      [self createButtonWithIcon:@"icon-aa-message" backgroundColor:self.messageBackgroundColorRGB andType:AAShareBubbleTypeMessage];
+        if(self.showQQBubble)           [self createButtonWithIcon:@"icon-aa-qq" backgroundColor:self.qqBackgroundColorRGB andType:AAShareBubbleTypeQQ];
+        if(self.showQzoneBubble)        [self createButtonWithIcon:@"icon-aa-qzone" backgroundColor:self.qzoneBackgroundColorRGB andType:AAShareBubbleTypeQzone];
+        if(self.showSinaWeiboBubble)    [self createButtonWithIcon:@"icon-aa-sinaweibo" backgroundColor:self.sinaWeiboBackgroundColorRGB andType:AAShareBubbleTypeSinaWeibo];
+        if(self.showWechatBubble)       [self createButtonWithIcon:@"icon-aa-wechat" backgroundColor:self.wechatBackgroundColorRGB andType:AAShareBubbleTypeWechat];
         
         for (AACustomShareBubble *customBubble in self.customButtons)
         {
@@ -153,7 +159,7 @@
         
         NSMutableArray *coordinates = [NSMutableArray array];
         
-        for (int i = 0; i < bubbles.count; ++i)
+        for (NSUInteger i = 0; i < bubbles.count; ++i)
         {
             UIButton *bubble = bubbles[i];
             bubble.tag = i;
@@ -161,14 +167,14 @@
             float angle = startAngel + i * bubblesBetweenAngel;
             float x = (float) (cos(angle * M_PI / 180) * bubbleDistanceFromPivot + self.radius);
             float y = (float) (sin(angle * M_PI / 180) * bubbleDistanceFromPivot + self.radius);
-
+            
             [coordinates addObject:@{@"x" : @(x), @"y" : @(y)}];
             
             bubble.transform = CGAffineTransformMakeScale(0.001, 0.001);
             bubble.center = CGPointMake(self.radius, self.radius);
         }
         
-        int inetratorI = 0;
+        NSInteger inetratorI = 0;
         for (NSDictionary *coordinate in coordinates)
         {
             UIButton *bubble = bubbles[inetratorI];
@@ -183,7 +189,7 @@
     if(!self.isAnimating)
     {
         self.isAnimating = YES;
-        int inetratorI = 0;
+        NSInteger inetratorI = 0;
         for (UIButton *bubble in bubbles)
         {
             CGFloat delayTime = (CGFloat) (inetratorI * 0.1);
@@ -239,7 +245,7 @@
             if(bubble.tag == bubbles.count - 1) {
                 self.isAnimating = NO;
                 self.hidden = YES;
-
+                
                 [UIView animateWithDuration:0.25 animations:^{
                     faderView.alpha = 0;
                 } completion:^(BOOL finished) {
@@ -255,7 +261,7 @@
     }];
 }
 
--(void)createButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(int)buttonId
+-(void)createButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(NSInteger)buttonId
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self action:@selector(buttonWasTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -285,14 +291,16 @@
     [self addSubview:button];
 }
 
--(void)createButtonWithIcon:(NSString *)iconName backgroundColor:(int)rgb andType:(AAShareBubbleType)type
+-(void)createButtonWithIcon:(NSString *)iconName backgroundColor:(NSInteger)rgb andType:(AAShareBubbleType)type
 {
-    UIImage *icon = [UIImage imageNamed:[NSString stringWithFormat:@"AAShareBubbles.bundle/%@", iconName]];
+    NSBundle *classBundle = [NSBundle bundleForClass:[self class]];
+    NSBundle *resourcesBundle = [NSBundle bundleWithPath:[NSString stringWithFormat:@"%@/AAShareBubbles.bundle", classBundle.bundlePath]];
+    UIImage *icon = [UIImage imageNamed:iconName inBundle:resourcesBundle compatibleWithTraitCollection:nil];
     UIColor *color = [self colorFromRGB:rgb];
     [self createButtonWithIcon:icon backgroundColor:color andButtonId:type];
 }
 
--(void)addCustomButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(int)buttonId
+-(void)addCustomButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(NSInteger)buttonId
 {
     NSAssert(buttonId >= 100, @"Custom Button Ids must be >= 100");
     
@@ -303,7 +311,7 @@
     [self.customButtons addObject:customButton];
 }
 
--(UIColor *)colorFromRGB:(int)rgb {
+-(UIColor *)colorFromRGB:(NSInteger)rgb {
     return [UIColor colorWithRed:((float)((rgb & 0xFF0000) >> 16))/255.0 green:((float)((rgb & 0xFF00) >> 8))/255.0 blue:((float)(rgb & 0xFF))/255.0 alpha:1.0];
 }
 

@@ -11,7 +11,7 @@
 
 @protocol AAShareBubblesDelegate;
 
-typedef enum AAShareBubbleType : int {
+typedef NS_ENUM(NSUInteger, AAShareBubbleType) {
     AAShareBubbleTypeFacebook = 0,
     AAShareBubbleTypeTwitter = 1,
     AAShareBubbleTypeGooglePlus = 2,
@@ -31,8 +31,7 @@ typedef enum AAShareBubbleType : int {
     AAShareBubbleTypeQzone = 16,
     AAShareBubbleTypeSinaWeibo = 17,
     AAShareBubbleTypeWechat = 18
-    
-} AAShareBubbleType;
+};
 
 @interface AAShareBubbles : UIView
 
@@ -60,13 +59,16 @@ typedef enum AAShareBubbleType : int {
 @property (nonatomic, strong) NSMutableArray *customButtons;
 
 // The radius from center point to each share button
-@property (nonatomic, assign) int radius;
+@property (nonatomic, assign) NSInteger radius;
 
 // Bubble button radius
-@property (nonatomic, assign) int bubbleRadius;
+@property (nonatomic, assign) NSInteger bubbleRadius;
 
 // Define if bubbles are currently animating (showing or hiding)
 @property (nonatomic, assign) BOOL isAnimating;
+
+// Define if view will dismiss when user taps on background (Default: YES)
+@property (nonatomic, assign) BOOL dismissOnBackgroundTap;
 
 @property (nonatomic, weak) UIView *parentView;
 
@@ -76,35 +78,35 @@ typedef enum AAShareBubbleType : int {
 // The fader view background color, default is black
 @property (nonatomic, strong) UIColor *faderColor;
 
-@property (nonatomic, assign) int facebookBackgroundColorRGB;
-@property (nonatomic, assign) int twitterBackgroundColorRGB;
-@property (nonatomic, assign) int mailBackgroundColorRGB;
-@property (nonatomic, assign) int googlePlusBackgroundColorRGB;
-@property (nonatomic, assign) int tumblrBackgroundColorRGB;
-@property (nonatomic, assign) int vkBackgroundColorRGB;
-@property (nonatomic, assign) int linkedInBackgroundColorRGB;
-@property (nonatomic, assign) int pinterestBackgroundColorRGB;
-@property (nonatomic, assign) int youtubeBackgroundColorRGB;
-@property (nonatomic, assign) int vimeoBackgroundColorRGB;
-@property (nonatomic, assign) int redditBackgroundColorRGB;
-@property (nonatomic, assign) int instagramBackgroundColorRGB;
-@property (nonatomic, assign) int favoriteBackgroundColorRGB;
-@property (nonatomic, assign) int whatsappBackgroundColorRGB;
-@property (nonatomic, assign) int sinaWeiboBackgroundColorRGB;
-@property (nonatomic, assign) int qqBackgroundColorRGB;
-@property (nonatomic, assign) int qzoneBackgroundColorRGB;
-@property (nonatomic, assign) int wechatBackgroundColorRGB;
-@property (nonatomic, assign) int messageBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger facebookBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger twitterBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger mailBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger googlePlusBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger tumblrBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger vkBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger linkedInBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger pinterestBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger youtubeBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger vimeoBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger redditBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger instagramBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger favoriteBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger whatsappBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger sinaWeiboBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger qqBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger qzoneBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger wechatBackgroundColorRGB;
+@property (nonatomic, assign) NSInteger messageBackgroundColorRGB;
 
--(id)initWithPoint:(CGPoint)point radius:(int)radiusValue inView:(UIView *)inView;
+-(instancetype)initWithPoint:(CGPoint)point radius:(NSInteger)radiusValue inView:(UIView *)inView;
 
 // Share bubbles will appear in UIWindow instance
--(id)initCenteredInWindowWithRadius:(int)radiusValue;
+-(instancetype)initCenteredInWindowWithRadius:(NSInteger)radiusValue;
 
 -(void)show;
 -(void)hide;
 
--(void)addCustomButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(int)buttonId;
+-(void)addCustomButtonWithIcon:(UIImage *)icon backgroundColor:(UIColor *)color andButtonId:(NSInteger)buttonId;
 
 @end
 
@@ -113,7 +115,7 @@ typedef enum AAShareBubbleType : int {
 @optional
 
 // On buttons pressed
--(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(int)bubbleType;
+-(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType;
 
 // On bubbles hide
 -(void)aaShareBubblesDidHide:(AAShareBubbles *)shareBubbles;
