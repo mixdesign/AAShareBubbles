@@ -72,7 +72,7 @@
 #pragma mark -
 #pragma mark AAShareBubbles
 
--(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(int)bubbleType
+-(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType
 {
     switch (bubbleType) {
         case AAShareBubbleTypeFacebook:
@@ -103,7 +103,7 @@
             NSLog(@"Reddit");
             break;
         case CUSTOM_BUTTON_ID:
-            NSLog(@"Custom Button With Type %d", bubbleType);
+            NSLog(@"Custom Button With Type %@", @(bubbleType));
             break;
         default:
             break;
