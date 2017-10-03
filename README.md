@@ -1,7 +1,8 @@
 Intro
 ==============
 
-[![Join the chat at https://gitter.im/mixdesign/AAShareBubbles](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mixdesign/AAShareBubbles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+>Swift version:</br> 
+>https://github.com/takecian/SwiftShareBubbles
 
 Animated Social share buttons control.<br>
 Supported buttons:<br><b>Facebook</b>,  <b>Twitter</b>,  <b>Google+</b>, <b>Tumblr</b>, <b>Vkontakte (vk.com)</b>, <b>LinkedIn</b>, <b>Pinterest</b>, <b>Youtube</b>, <b>Vimeo</b>, <b>Reddit</b>, <b>Instagram</b>, <b>Whatsapp</b>, <b>E-mail</b>, <b>Add to favorites</b>
@@ -53,7 +54,8 @@ shareBubbles.showVkBubble = YES;
 AAShareBubbles *shareBubbles = [[AAShareBubbles alloc] initCenteredInWindowWithRadius:100];
 ...
 ````
-#####Delegate
+Delegate
+------
 ```objective-c
 -(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType
 {
